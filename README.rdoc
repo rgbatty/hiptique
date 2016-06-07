@@ -1,28 +1,21 @@
-== README
+## Hiptique - The antiquities dealer for hipsters!
+[Production ver. 0.1](http://hiptique.herokuapp.com)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### About
 
-Things you may want to cover:
+Hiptique is a Turing School of Software and Design project written by Illana Corson, Erin Greenhagh, and Ryan Batty. It leverages the Ruby on Rails framework, PostgreSQL, HTML, HAML, and ERB to provide a efficient and elegant E-Commerce platform.
 
-* Ruby version
+More about the official spec can be found [here](https://github.com/turingschool/curriculum/blob/master/source/projects/little_shop.markdown) and our official task repository can be found on Waffle.io [here](https://waffle.io/Riizu/hiptique).
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Unlike prior projects at Turing, this project presents a real-world example of working with a client, in this case represented by an instructor, in an Agile fashion to deliver results at a consistant and timely pace. With that in mind, all code is written to utilize best-use Object Oriented Design principles, TDD, and other Agile toolsets.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+### Deployment
+
+This app is automatically deployed using Heroku's built in Git Integration and an [open-source Heroku Buildpack](https://github.com/gunpowderlabs/buildpack-ruby-rake-deploy-tasks) to execute database migrations as new production pushes are sent.
+
+### Git Workflow
+
+The development team on this app focused on maintaining a real-world Git workflow at all times. Pull requests on feature branches are leveraged before any major merge into either our Dev or Master branches. All merges into Master immediately update the production environment.
+
+
