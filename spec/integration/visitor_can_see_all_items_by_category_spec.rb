@@ -6,8 +6,7 @@ RSpec.feature "Visitor can see all items by category", :type => :feature do
     item1 = category.items.create(name: "Floppy Disc", description: "So great", price: "5.99")
     item2 = category.items.create(name: "CD", description: "Pretty great too", price: "2.99")
 
-    visit "/#{category.name}"
-    # save_and_open_page
+    visit category_path(category.name)
 
     within(".item_info") do
       expect(page).to have_content(item1.name)
