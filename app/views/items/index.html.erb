@@ -1,0 +1,9 @@
+<h1>All Available Items</h1>
+
+<div class="all_info">
+  <% @items.each do |item| %>
+   <%= item.name %>
+   <%= item.description %>
+   <%= item.price %>
+  <% end %>
+</div>
