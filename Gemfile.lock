@@ -118,10 +118,6 @@ GEM
     rake (11.1.2)
     rdoc (4.2.2)
       json (~> 1.4)
-    rspec (3.4.0)
-      rspec-core (~> 3.4.0)
-      rspec-expectations (~> 3.4.0)
-      rspec-mocks (~> 3.4.0)
     rspec-core (3.4.4)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
@@ -187,7 +183,6 @@ DEPENDENCIES
   launchy
   pg (~> 0.15)
   rails (= 4.2.6)
-  rspec
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
