@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :items, only: [:index]
 
-  get "/:category_name" => "categories#show", as: "category"
+  get "/:id" => "categories#show", as: "category"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
