@@ -4,7 +4,7 @@ RSpec.feature "Visitor can see all items", :type => :feature do
   scenario "visitor visits the items page" do
 
     category = Category.create(name: "Data Storage")
-    
+
     item1 = Item.create(name: "Polaroid Camera", description: "A great camera", price: "15.99")
     item2 = Item.create(name: "Floppy Disc", description: "So useful!", price: "5.99")
 
@@ -14,7 +14,7 @@ RSpec.feature "Visitor can see all items", :type => :feature do
       expect(page).to have_content("All Available Items")
     end
 
-    within("ul") do
+    within(".all_info") do
       expect(page).to have_content(item1.name)
       expect(page).to have_content(item2.name)
     end
