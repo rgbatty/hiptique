@@ -1,3 +1,5 @@
 Category.create(name: "storage")
-Category.find_by(name: "storage").items.create(name: "Floppy Disc", description: "So great", price: "5.99")
-Category.find_by(name: "storage").items.create(name: "CD", description: "Pretty great too", price: "2.99")
+Category.create(name: "electronics")
+Category.find_by(name: "storage").items.create(name: "Gameboy", description: "Hard as a rock", price: "99.99")
+Category.find_by(name: "storage").items.create(name: "Walkman", description: "Pretty great too", price: "22.99")
+Category.find_by(name: "electronics").items.create(name: "VCR", description: "YA great too", price: "100.99")

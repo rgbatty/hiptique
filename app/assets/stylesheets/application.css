@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+ html {
+   height: 100%;
+ }
+ body {
+   width: 100%;
+   height: 400px;
+   background-image: url('https://static.pexels.com/photos/370/lights-night-dark-abstract.jpeg');
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+        }
+
+.navbar-header img{
+  height: 100%;
+  width: auto;
+}
+
+.navbar-header. {
+  width: 40px;
+  height: auto;
+}

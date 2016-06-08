@@ -28,6 +28,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
 
+gem "factory_girl_rails"
 # Use Unicorn as the app server
 # gem 'unicorn'
 
