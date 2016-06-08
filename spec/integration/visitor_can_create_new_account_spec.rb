@@ -3,27 +3,31 @@ require 'rails_helper'
 RSpec.feature 'visitor can create a new account' do
 
   context "with valid params" do
-    scenario "they see the link to create an account" do
+    scenario "they see the form to create an account" do
       new_username = "Erin"
       password = "password"
 
-      # visit root_path
-      # click_link "Create Account"
-      visit new_user_path
-
-      expect(current_path).to eq new_user_path
+      visit login_path
+      click_link "Create Account"
 
       fill_in "Username", with: new_username
       fill_in "Password", with: password
       click_button "Create Account"
 
-      expect(current_path).to eq user_path(User.last)
+      expect(current_path).to eq '/dashboard'
 
       within("#flash_welcome") do
         expect(page).to have_content("Thanks for creating an account!")
       end
 
-      expect(page).to have_content("Welcome, #{new_username}")
+      within(".navbar") do
+        expect(page).to have_content("Logged in as #{new_username}")
+        expect(page).to have_content("Log Out")
+        expect(page).not_to have_content("Log In")
+      end
+
+
+
     end
   end
 
@@ -65,6 +69,7 @@ RSpec.feature 'visitor can create a new account' do
       visit new_user_path
 
       fill_in "Username", with: new_username
+      # save_and_open_page
       click_button "Create Account"
 
       within('#flash_error') do
