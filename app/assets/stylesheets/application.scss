@@ -15,7 +15,7 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
- 
+
  html {
    height: 100%;
  }
@@ -25,12 +25,29 @@
    background-image: url('https://static.pexels.com/photos/370/lights-night-dark-abstract.jpeg');
    background-repeat: no-repeat;
    background-size: 100% 100%;
+   font-family: 'Lato', serif;
         }
 
 /*.navbar-header img{
   height: 40px;
   width: auto;
 }*/
-.nav {
-  background-color: #660033;
+
+#custom-nav {
+  // background-color: #660033;
+  border-top: none;
+  box-shadow: none;
+  background-size: parent;
+  background: linear-gradient(#C7D3DC,#5B798E);
+  background: -o-linear-gradient(#C7D3DC,#5B798E);
+  background: -moz-linear-gradient(#C7D3DC,#5B798E);
+  background: -webkit-linear-gradient(#C7D3DC,#5B798E);
+    }
+
+.navbar {
+  border: none;
+}
+
+#icon{
+
 }
