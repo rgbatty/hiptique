@@ -27,8 +27,12 @@ RSpec.feature 'visitor can create a new account' do
       click_button "Create Account"
 
       expect(current_path).to eq user_path(User.last)
-      expect(page).to have_content("Thanks for creating an account!")
-      expect(page).to have_content("Welcome, #{username}")
+
+      within("#flash_welcome") do
+        expect(page).to have_content("Thanks for creating an account!")
+      end
+
+      expect(page).to have_content("Welcome, #{new_username}")
       # expect(page).to have_content("Log Out")
     end
   end
