@@ -36,6 +36,23 @@ RSpec.describe Cart, type: :model do
     cart.add_item(item.id)
   end
 
+  it "can remove existing items from a cart" do
+    item = Item.create(name: "Floppy Disc", description: "So great", price: "5.99")
+    cart = Cart.new({ item.id.to_s => 1 })
+
+    cart.remove_item(item.id)
+
+    expect(cart.total).to eq 0
+  end
+
+  it "won't attempt to remove items from an empty cart" do
+    cart = Cart.new(nil)
+
+    cart.remove_item(2)
+
+    expect(cart.total).to eq 0
+  end
+
   it "can convert its contents to a hash of objects and quantities" do
     item = Item.create(name: "Floppy Disc", description: "So great", price: "5.99")
     cart = Cart.new({ item.id.to_s => 1 })

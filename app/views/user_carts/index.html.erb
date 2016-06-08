@@ -7,6 +7,7 @@
     <%= item.description %>
     <%= item.price %>
     <%= total %>
+    <%= button_to "Remove", user_carts_path(item_id: item.id) %>
   </div>
 <% end %>
 
