@@ -43,11 +43,8 @@ group :development, :test do
   gem 'launchy'
   gem 'capybara'
   gem 'rspec-rails'
-<<<<<<< HEAD
   gem 'mocha'
-=======
   gem 'database_cleaner'
->>>>>>> 224443e5b3ada1f227c53fa724af1466b9117c8a
 end
 
 group :development do

@@ -14,7 +14,9 @@ class Cart
   end
 
   def total
-    contents.values.sum
+    obj_contents.inject(0) do |total, cart_item|
+      total += cart_item[0].price * cart_item[1]
+    end
   end
 
   def obj_contents

@@ -20,13 +20,13 @@ RSpec.describe Cart, type: :model do
     expect(cart.contents).to eq ({ item_1.id.to_s => 2, item_2.id.to_s => 1})
   end
 
-  it "returns total number of all items" do
+  it "returns total price of all items" do
     item_1 = Item.create(name: "Floppy Disc", description: "So great", price: "5.99")
     item_2 = Item.create(name: "Floppy Disc", description: "So useful!", price: "5.99")
 
     cart = Cart.new({ item_1.id.to_s => 3, item_2.id.to_s => 1})
 
-    expect(cart.total).to eq 4
+    expect(cart.total).to eq 20
   end
 
   it "can add items to an empty cart" do

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root :to => "items#index"
 
   resources :items, only: [:index, :show]
-  resources :users, only: [:new, :index, :create, :show]
+  resources :users, only: [:new, :index, :create]
   resources :user_carts, only: [:create, :index]
 
   get "/cart" => "user_carts#index", as: "cart"

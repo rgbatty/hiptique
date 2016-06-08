@@ -8,12 +8,14 @@ RSpec.feature 'Visitor can remove items from their cart' do
 
       visit item_path(item.id)
       click_button "Add to cart"
+      click_link "Cart"
 
       within("#item-#{item.name}") do
         click_button "Remove"
       end
 
-      expect(page).to have_content "Total: 0"
+      expect(page).to have_current_path(user_carts_path)
+      expect(page).to have_content "Total Price: $0"
     end
   end
 end
