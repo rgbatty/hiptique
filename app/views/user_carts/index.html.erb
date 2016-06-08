@@ -1,9 +1,13 @@
 <h2>My Cart</h2>
 
-<% @contents.each do |item, total| %>
-  <div id="cart-item-image"><%= item.image %></div>
-  <%= item.name %>
-  <%= item.description %>
-  <%= item.price %>
-  <%= total %>
+<% @cart.obj_contents.each do |item, total| %>
+  <div id="item-<%= item.name %>">
+    <img src="<%= item.image %>"></img>
+    <div><%= item.name %><div>
+    <%= item.description %>
+    <%= item.price %>
+    <%= total %>
+  </div>
 <% end %>
+
+Total: <%= @cart.total %>

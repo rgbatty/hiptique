@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   resources :user_carts, only: [:create, :index]
 
+  get "/cart" => "user_carts#index", as: "cart"
   get "/:id" => "categories#show", as: "category"
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

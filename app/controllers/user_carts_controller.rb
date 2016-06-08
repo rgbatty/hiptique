@@ -6,6 +6,6 @@ class UserCartsController< ApplicationController
   end
 
   def index
-    @contents = @cart.obj_contents
+    @cart
   end
 end

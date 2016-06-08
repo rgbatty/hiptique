@@ -9,10 +9,15 @@ RSpec.feature 'Visitor can view their cart' do
 
     click_button "Add to cart"
 
-    expect(page).to have_current_path(user_carts_path)
-    expect(page).to have_content image_url
-    expect(page).to have_content item.name
-    expect(page).to have_content item.description
-    expect(page).to have_content item.price
+    within("#item-#{item.name}") do
+        expect(page).to have_current_path(user_carts_path)
+        expect(page).to have_content image_url
+        expect(page).to have_content item.name
+        expect(page).to have_content item.description
+        expect(page).to have_content item.price
+        expect(page).to have_content "1"
+    end
+
+    expect(page).to have_content "Total: 1"
   end
 end
