@@ -1,0 +1,9 @@
+<h2>My Cart</h2>
+
+<% @contents.each do |item, total| %>
+  <div id="cart-item-image"><%= item.image %></div>
+  <%= item.name %>
+  <%= item.description %>
+  <%= item.price %>
+  <%= total %>
+<% end %>

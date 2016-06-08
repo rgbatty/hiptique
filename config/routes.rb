@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  resources :items, only: [:index]
-
-  get "/:id" => "categories#show", as: "category"
+  resources :items, only: [:index, :show]
 
   resources :users, only: [:new, :index, :create, :show]
+
+  resources :user_carts, only: [:create, :index]
+
+  get "/:id" => "categories#show", as: "category"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
