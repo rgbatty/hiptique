@@ -8,12 +8,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
+    @user = User.new(user_params)
     if @user.save
       flash[:welcome] = "Thanks for creating an account!"
       redirect_to user_path(@user)
     else
-      flash[:error] = @user.errors.full_messages.join(", ")
+      flash.now[:error] = @user.errors.full_messages.join(", ")
       render :new
     end
   end
