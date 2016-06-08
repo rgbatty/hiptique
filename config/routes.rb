@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  resources :items, only: [:index]
 
-  get "/:id" => "categories#show", as: "category"
+  get '/login', to: 'sessions#new'
+
+  resources :items, only: [:index]
 
   resources :users, only: [:new, :index, :create, :show]
 
+  get "/:id" => "categories#show", as: "category"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
