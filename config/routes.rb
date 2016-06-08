@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :index, :create]
 
-  get "/:id" => "categories#show", as: "category"
   get "/dashboard" => "users#show", as: "user"
+  get "/:id" => "categories#show", as: "category"
 
 
 end
