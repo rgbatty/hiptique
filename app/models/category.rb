@@ -14,6 +14,10 @@ class Category < ActiveRecord::Base
   end
 
   def self.find(input)
-    input.to_i == 0 ? find_by_name(input) : super
+    if input.to_i == 0
+      find_by_name(input)
+    else
+      super
+    end
   end
 end

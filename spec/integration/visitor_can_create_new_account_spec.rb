@@ -16,8 +16,8 @@ RSpec.feature 'visitor can create a new account' do
       fill_in "Password", with: password
       click_button "Create Account"
 
-      expect(current_path).to eq user_path(User.last)
-      # expect(current_path).to eq '/dashboard'
+      # expect(current_path).to eq user_path(User.last)
+      expect(current_path).to eq '/dashboard'
 
       within("#flash_welcome") do
         expect(page).to have_content("Thanks for creating an account!")
@@ -72,6 +72,7 @@ RSpec.feature 'visitor can create a new account' do
       visit new_user_path
 
       fill_in "Username", with: new_username
+      save_and_open_page
       click_button "Create Account"
 
       within('#flash_error') do
