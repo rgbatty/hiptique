@@ -29,12 +29,9 @@
         </ul>
       </div>
       </nav>
-      <%# flash.each do |name, message| %>
-      <%#= content_tag :div, message, id: "flash_#{name}" %>
-      <%# end %>
-      <div>
-        <%= flash[:remove_item].html_safe unless flash[:remove_item].blank? %>
-      </div>
+      <% flash.each do |name, message| %>
+      <%= content_tag :div, message.html_safe, id: "flash_#{name}" %>
+      <% end %>
       <div class="backgound-image">
 
       </div>
