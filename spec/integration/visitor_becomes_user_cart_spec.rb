@@ -1,3 +1,4 @@
+require 'rails_helper'
 
 RSpec.feature "visitor becomes users and can see cart checkout" do
   context "visitor has to register account to checkout" do
