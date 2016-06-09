@@ -11,7 +11,7 @@ RSpec.feature "visitor becomes users and can see cart checkout" do
       click_link "Cart"
 
       within("#user_buttons") do
-          expect(page).to have_link("Register Account")
+          expect(page).to have_link("Login or Create Account to Checkout")
       end
     end
   end
@@ -25,7 +25,7 @@ RSpec.feature "visitor becomes users and can see cart checkout" do
       click_button "Add to cart"
       click_link "Cart"
 
-      click_link "Register Account"
+      click_link "Login or Create Account to Checkout"
 
       fill_in "Username", with: "Ilana"
       fill_in "Password", with: "password"
