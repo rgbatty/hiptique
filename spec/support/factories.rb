@@ -7,4 +7,20 @@ FactoryGirl.define do
   sequence :username do |n|
     "User #{n}"
   end
+
+  sequence :name do |n|
+    "item #{n}"
+  end
+
+  factory :item do
+    name
+    description "A great thing"
+    price "10"
+  end
+
+  factory :order do
+    user
+  end
+
+
 end
