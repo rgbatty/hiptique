@@ -11,6 +11,7 @@
    <%= link_to item.name, item_path(item) %>
    <%= item.description %>
    <%= "$#{item.price}" %>
+   <%= button_to "Add to cart", user_carts_path(item_id: item.id, create: true) %>
  </div>
   <% end %>
 </div>
