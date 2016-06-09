@@ -64,3 +64,13 @@
 #site_content {
   background-color: white;
 }
+
+.flash_message {
+  color: white;
+  background-color: #8ACC7C;
+}
+
+.flash_message a:link {
+  text-decoration: underline;
+  color: white;
+}

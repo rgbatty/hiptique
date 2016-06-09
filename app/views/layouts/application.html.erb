@@ -30,7 +30,7 @@
       </div>
       </nav>
       <% flash.each do |name, message| %>
-      <%= content_tag :div, message.html_safe, id: "flash_#{name}" %>
+      <%= content_tag :div, message.html_safe, id: "flash_#{name}", class: "flash_message" %>
       <% end %>
       <div class="backgound-image">
 
