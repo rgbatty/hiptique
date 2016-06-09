@@ -18,9 +18,4 @@ FactoryGirl.define do
     price "10"
   end
 
-  factory :order do
-    user
-  end
-
-
 end
