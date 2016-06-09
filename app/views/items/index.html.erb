@@ -1,9 +1,18 @@
+<div class="container-fluid">
+<!-- <div class="col-md-12 text-right"> -->
+
 <h1>All Available Items</h1>
 
+
 <div class="all_info">
+
   <% @items.each do |item| %>
+  <div class="col-md-4">
    <%= item.name %>
    <%= item.description %>
    <%= item.price %>
   <% end %>
+</div>
+</div>
+</div>
 </div>

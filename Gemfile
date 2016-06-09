@@ -6,6 +6,7 @@ gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -28,6 +29,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
 
+gem "factory_girl_rails"
+gem "rails_12factor", group: :production
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -40,6 +43,9 @@ group :development, :test do
   gem 'launchy'
   gem 'capybara'
   gem 'rspec-rails'
+  gem 'mocha'
+  gem 'database_cleaner'
+  gem 'rack_session_access'
 end
 
 group :development do
