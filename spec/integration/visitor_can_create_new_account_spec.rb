@@ -69,7 +69,6 @@ RSpec.feature 'visitor can create a new account' do
       visit new_user_path
 
       fill_in "Username", with: new_username
-      # save_and_open_page
       click_button "Create Account"
 
       within('#flash_error') do

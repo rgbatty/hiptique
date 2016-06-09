@@ -14,7 +14,7 @@ RSpec.feature 'Visitor can add items to their cart' do
         expect(page).to have_content item.name
         expect(page).to have_content item.description
         expect(page).to have_content item.price
-        expect(page).to have_content "1"
+        expect(page).to have_field('quantity', with: '1')
     end
 
     expect(page).to have_content "Total Price: $#{item.price}"
