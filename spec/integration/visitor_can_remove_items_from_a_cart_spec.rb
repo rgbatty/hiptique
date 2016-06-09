@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Visitor can remove items from their cart' do
   describe UserCartsController do
     scenario 'They visit their cart' do
-      image_url = "https://wayofcomputer.files.wordpress.com/2015/08/floppy_disc.jpg"
-      item = Item.create(name: "Test", description: "So useful!", price: "5.99", image: image_url)
+      item = create(:item)
 
       page.set_rack_session(:cart => {item.id => 1})
       visit user_carts_path

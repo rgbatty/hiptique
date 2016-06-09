@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Visitor can modify the quantity of items in their cart' do
   scenario 'They modify the quantity of an existing cart item' do
-    image_url = "https://wayofcomputer.files.wordpress.com/2015/08/floppy_disc.jpg"
-    item = Item.create(name: "Test", description: "So useful!", price: "5.99", image: image_url)
+    item = create(:item)
 
     page.set_rack_session(:cart => {item.id => 1})
     visit user_carts_path
