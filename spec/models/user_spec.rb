@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  it {should have_many(:orders)}
+  it {should respond_to(:orders)}
   it {should respond_to(:username)}
   it {should respond_to(:password)}
 
