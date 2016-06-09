@@ -2,10 +2,6 @@ FactoryGirl.define do
   factory :user do
     username
     password "password"
-
-    factory :user_with_orders do
-      orders { create_list(:order, 3) }
-    end
   end
 
   sequence :username do |n|
@@ -20,10 +16,6 @@ FactoryGirl.define do
     name
     description "A great thing"
     price "10"
-  end
-
-  factory :order do
-    user
   end
 
 
