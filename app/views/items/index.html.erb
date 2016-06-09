@@ -8,11 +8,10 @@
 
   <% @items.each do |item| %>
   <div class="col-md-4">
-   <%= item.name %>
+   <%= link_to item.name, item_path(item) %>
    <%= item.description %>
    <%= item.price %>
+ </div>
   <% end %>
-</div>
-</div>
 </div>
 </div>
