@@ -23,9 +23,4 @@ FactoryGirl.define do
     "item #{n}"
   end
 
-  factory :item do
-    name
-    description "A great thing"
-    price "10"
-  end
 end
