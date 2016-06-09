@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.feature 'visitor can create a new account' do
-
   context "with valid params" do
     scenario "they see the form to create an account" do
       new_username = "Erin"
@@ -25,15 +24,11 @@ RSpec.feature 'visitor can create a new account' do
         expect(page).to have_content("Log Out")
         expect(page).not_to have_content("Log In")
       end
-
-
-
     end
   end
 
   context "with invalid params" do
     scenario "name is not present" do
-
       password = "password"
 
       visit new_user_path
@@ -47,7 +42,7 @@ RSpec.feature 'visitor can create a new account' do
     end
 
     scenario "name is not unique" do
-      existing_user = User.create(username: "Erin", password: "Password")
+      User.create(username: "Erin", password: "Password")
 
       new_username = "Erin"
       password = "password"
@@ -69,13 +64,11 @@ RSpec.feature 'visitor can create a new account' do
       visit new_user_path
 
       fill_in "Username", with: new_username
-      # save_and_open_page
       click_button "Create Account"
 
       within('#flash_error') do
-      expect(page).to have_content("Password can't be blank")
+        expect(page).to have_content("Password can't be blank")
       end
     end
-
   end
 end

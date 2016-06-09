@@ -1,25 +1,22 @@
-require 'rails_helper'
-#
+
 RSpec.feature "visitor becomes users and can see cart checkout" do
   context "visitor has to register account to checkout" do
     scenario 'visitor sees register account links' do
-      image_url = "https://wayofcomputer.files.wordpress.com/2015/08/floppy_disc.jpg"
-      item = Item.create(name: "Test", description: "So useful!", price: "5.99", image: image_url)
+      item = create(:item)
 
       visit item_path(item.id)
       click_button "Add to cart"
       click_link "Cart"
 
       within("#user_buttons") do
-          expect(page).to have_link("Login or Create Account to Checkout")
+        expect(page).to have_link("Login or Create Account to Checkout")
       end
     end
   end
 
   context "visitor registers" do
-     scenario "when visitor register and visits cart, checkout is available" do
-      image_url = "https://wayofcomputer.files.wordpress.com/2015/08/floppy_disc.jpg"
-      item = Item.create(name: "Test", description: "So useful!", price: "5.99", image: image_url)
+    scenario "when visitor register and visits cart, checkout is available" do
+      item = create(:item)
 
       visit item_path(item.id)
       click_button "Add to cart"
