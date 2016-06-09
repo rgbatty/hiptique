@@ -2,6 +2,10 @@ FactoryGirl.define do
   factory :user do
     username
     password "password"
+
+    factory :user_with_orders do
+      orders { create_list(:order, 3) }
+    end
   end
 
   sequence :username do |n|

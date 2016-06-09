@@ -1,19 +1,18 @@
 require 'rails_helper'
 
 RSpec.feature "user views past orders" do
-  scenario "they view thier orders" do
-#     Background: An existing user that has multiple orders
-# As an Authenticated User
-# When I visit "/orders"
-# Then I should see all orders belonging to me and no other or
-  user = create(:user)
-  allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-  order1 = user.create(:order)
-  order2 = user.create(:order)
+  scenario "they view their orders" do
 
-  visit user_orders_path
+    user = create(:user)
+    order1 = user.orders.create
+    order2 = user.orders.create
 
-  expect(page).to have_content(order1.items)
-  expect(page).to have_content(order2.items)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit orders_path
+
+    expect(page).to have_content("Order ##{order1.id}")
+    expect(page).to have_content("Order ##{order2.id}")
+    expect(page).to have_content("Order ##{order3.id}")
   end
 end
