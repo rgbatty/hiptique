@@ -11,7 +11,6 @@ RSpec.feature "user views past orders" do
     order3 = user2.orders.create
     order4 = user2.orders.create
 
-    # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     visit login_path
 
     fill_in "Username", with: user1.username
