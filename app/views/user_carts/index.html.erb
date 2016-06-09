@@ -17,3 +17,10 @@
 <% end %>
 
 Total Price: $<%= @cart.total %>
+<div id="user_buttons">
+<% if current_user %>
+<%= button_to "Checkout"%>
+<% else %>
+<%= link_to "Login or Create Account to Checkout", new_user_path%>
+<%end%>
+</div>

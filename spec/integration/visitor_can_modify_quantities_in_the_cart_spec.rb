@@ -8,7 +8,7 @@ RSpec.feature 'Visitor can modify the quantity of items in their cart' do
     page.set_rack_session(:cart => {item.id => 1})
     visit user_carts_path
 
-    save_and_open_page
+    # save_and_open_page
 
     within("#item-#{item.name}") do
      expect(page).to have_content("1")
