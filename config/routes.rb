@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :index, :create]
   resources :user_carts, only: [:create, :index]
 
+  
+  resources :orders, only: [:index]
+
   get "/cart" => "user_carts#index", as: "cart"
 
   get '/login', to: 'sessions#new'
