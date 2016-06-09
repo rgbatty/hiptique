@@ -7,7 +7,6 @@ RSpec.feature 'Visitor can remove items from their cart' do
 
       page.set_rack_session(:cart => {item.id => 1})
       visit user_carts_path
-
       within("#item-#{item.name}") do
         click_button "Remove"
       end

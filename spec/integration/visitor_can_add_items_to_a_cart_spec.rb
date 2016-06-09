@@ -7,8 +7,6 @@ RSpec.feature 'Visitor can add items to their cart' do
     visit item_path(item.id)
     click_button "Add to cart"
     click_link "Cart"
-
-    save_and_open_page
     
     within("#item-#{item.name}") do
       expect(page).to have_current_path(user_carts_path)
