@@ -13,6 +13,10 @@ class Cart
     contents.delete(item_id.to_s)
   end
 
+  def update_quantity(item_id, quantity)
+    contents[item_id.to_s] = quantity.to_i
+  end
+
   def total
     obj_contents.inject(0) do |total, cart_item|
       total += cart_item[0].price * cart_item[1]

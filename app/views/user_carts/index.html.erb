@@ -1,13 +1,18 @@
 <h2>My Cart</h2>
 
-<% @cart.obj_contents.each do |item, total| %>
+<% @cart.obj_contents.each do |item, quantity| %>
   <div id="item-<%= item.name %>">
     <img src="<%= item.image %>"></img>
     <div><%= item.name %><div>
     <%= item.description %>
     <%= item.price %>
-    <%= total %>
-    <%= button_to "Remove", user_carts_path(item_id: item.id) %>
+
+    <%= form_tag do %>
+      <%= text_field_tag(:quantity, quantity) %>
+      <%= hidden_field_tag :item_id , item.id %>
+      <%= submit_tag("Update") %>
+    <% end %>
+    <%= button_to "Remove", user_carts_path(item_id: item.id, remove: true) %>
   </div>
 <% end %>
 
