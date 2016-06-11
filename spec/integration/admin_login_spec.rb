@@ -14,7 +14,24 @@ RSpec.feature "admin login functions" do
     expect(current_path).to eq('/admin/dashboard')
 
     within("h1") do
+      expect(page).to have_content("Admin Dashboard")
+    end
+    within("h2") do
       expect(page).to have_content("Welcome, #{admin.username}")
       end
     end
+
+    scenario "default user cannot view admin dashboard" do
+      user = create(:user)
+
+      ApplicationController.any_instance.stubs(:current_user).returns(user)
+
+      visit admin_dashboard_path
+
+      expect(page).not_to have_content("Admin Dashboard")
+
+      within("title") do
+        expect(page).to have_content("The page you were looking for doesn't exist")
+    end
   end
+end
