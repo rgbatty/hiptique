@@ -69,4 +69,16 @@ RSpec.describe Cart, type: :model do
 
     expect(result).to eq({})
   end
+
+  it "can update the quantity of the cart" do
+    item = Item.create(name: "Floppy Disc", description: "So great", price: "5.99")
+    cart = Cart.new({ item.id.to_s => 1 })
+
+    cart.update_quantity(item.id, 2)
+
+    expect(cart.contents["#{item.id}"]).to eq(2)
+    cart.update_quantity(item.id, 1)
+    expect(cart.contents["#{item.id}"]).to eq(1)
+  end
+
 end
