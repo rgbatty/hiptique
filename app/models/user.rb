@@ -1,7 +1,11 @@
 class User < ActiveRecord::Base
-  has_secure_password
   has_many :orders
-  validates :username, presence: :true, uniqueness: :true
+
+  validates :username, presence: :true, uniqueness: :truev
+  validates :password, presence: :true
+
+  has_secure_password validations: false
+  validates_confirmation_of :password, :message => "does not match"
 
   def to_param
 

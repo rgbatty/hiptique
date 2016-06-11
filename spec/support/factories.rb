@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :user do
     username
     password "password"
+    password_confirmation "password"
   end
 
   factory :item do
@@ -22,6 +23,4 @@ FactoryGirl.define do
   sequence :name do |n|
     "item_#{n}"
   end
-
-
 end

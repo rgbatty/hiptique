@@ -27,6 +27,7 @@ RSpec.feature "visitor becomes users and can see cart checkout" do
 
       fill_in "Username", with: "Ilana"
       fill_in "Password", with: "password"
+      fill_in "Confirm Password", with: "password"
 
       click_button "Create Account"
 
