@@ -21,17 +21,29 @@ RSpec.feature "admin login functions" do
       end
     end
 
-    scenario "default user cannot view admin dashboard" do
-      user = create(:user)
+    context "default users can't view admin dashboard" do
+      scenario "default user cannot view admin dashboard" do
+        user = create(:user)
 
-      ApplicationController.any_instance.stubs(:current_user).returns(user)
+        ApplicationController.any_instance.stubs(:current_user).returns(user)
 
-      visit admin_dashboard_path
+        visit admin_dashboard_path
 
-      expect(page).not_to have_content("Admin Dashboard")
+        expect(page).not_to have_content("Admin Dashboard")
 
-      within("title") do
-        expect(page).to have_content("The page you were looking for doesn't exist")
+        within("title") do
+          expect(page).to have_content("The page you were looking for doesn't exist")
+      end
     end
+
+      scenario "guest cannot view admin dashboard" do
+        visit admin_dashboard_path
+
+        expect(page).not_to have_content("Admin Dashboard")
+
+        within("title") do
+          expect(page).to have_content("The page you were looking for doesn't exist")
+        end
+      end
   end
 end
