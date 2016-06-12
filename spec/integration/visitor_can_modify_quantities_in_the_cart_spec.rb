@@ -5,7 +5,7 @@ RSpec.feature 'Visitor can modify the quantity of items in their cart' do
     item = create(:item)
 
     page.set_rack_session(:cart => {item.id => 1})
-    visit user_carts_path
+    visit cart_items_path
 
     within("#item-#{item.name}") do
      expect(page).to have_field('quantity', with: '1')
@@ -14,7 +14,7 @@ RSpec.feature 'Visitor can modify the quantity of items in their cart' do
     fill_in 'quantity', with: "2"
     click_button 'Update'
 
-    expect(page).to have_current_path(user_carts_path)
+    expect(page).to have_current_path(cart_items_path)
     within("#item-#{item.name}") do
      expect(page).to have_field('quantity', with: '2')
     end
@@ -24,7 +24,7 @@ RSpec.feature 'Visitor can modify the quantity of items in their cart' do
     fill_in 'quantity', with: "1"
     click_button 'Update'
 
-    expect(page).to have_current_path(user_carts_path)
+    expect(page).to have_current_path(cart_items_path)
     within("#item-#{item.name}") do
      expect(page).to have_field('quantity', with: '1')
     end

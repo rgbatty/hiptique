@@ -11,3 +11,12 @@
 /log/*
 !/log/.keep
 /tmp
+<<<<<<< HEAD
+.byebug_history
+
+#ignore simplecov
+=======
+/bye_bug
+
+>>>>>>> dev
+/coverage

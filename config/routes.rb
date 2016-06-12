@@ -3,16 +3,15 @@ Rails.application.routes.draw do
 
   resources :items, only: [:index, :show]
   resources :users, only: [:new, :index, :create]
-  resources :user_carts, only: [:create, :index]
+  resources :cart_items, only: [:create, :index, :destroy, :update]
 
   resources :orders, only: [:index]
 
+  get "/cart" => "cart_items#index", as: "cart"
+
   namespace :admin do
     get "/dashboard" => "users#show"
-
   end
-
-  get "/cart" => "user_carts#index", as: "cart"
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

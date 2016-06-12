@@ -3,7 +3,7 @@
 <div><%= @item.price %></div>
 
 <% if @item.active? %>
-  <%= button_to "Add to cart", user_carts_path(item_id: @item.id, create: true) %>
+  <%= button_to "Add to cart", cart_items_path(id: @item) %>
 <% else %>
    <p>
      I'm Retired

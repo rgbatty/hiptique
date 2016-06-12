@@ -34,7 +34,6 @@ RSpec.describe Item, type: :model do
     item = Item.new(description: "it's great", price: "12")
     expect(item.save).to eq false
     expect(Item.count).to eq(0)
-
   end
 
 end
