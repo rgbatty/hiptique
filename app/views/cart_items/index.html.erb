@@ -1,6 +1,6 @@
 <h2>My Cart</h2>
 
-<% @cart.obj_contents.each do |item, quantity| %>
+<% @cart.obj_contents.each do |item| %>
   <div id="item-<%= item.name %>">
     <img src="<%= item.image %>"></img>
     <div><%= item.name %><div>
@@ -8,7 +8,7 @@
     <%= item.price %>
 
     <%= form_tag(cart_item_path(item), method: :put) do %>
-      <%= text_field_tag(:quantity, quantity) %>
+      <%= text_field_tag(:quantity, item.quantity) %>
       <%= hidden_field_tag :item_id , item.id %>
       <%= submit_tag("Update") %>
     <% end %>
