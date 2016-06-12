@@ -12,5 +12,5 @@ class Order < ActiveRecord::Base
     end
   end
 
-
+  enum status:["ordered", "paid", "cancelled", "completed"]
 end
