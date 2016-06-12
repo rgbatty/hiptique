@@ -20,7 +20,7 @@
 Total Price: $<%= @cart.total %>
 <div id="user_buttons">
 <% if current_user %>
-<%= button_to "Checkout", order_path(order), method: :post%>
+<%= button_to "Checkout", orders_path, method: :post%>
 <% else %>
 <%= link_to "Login or Create Account to Checkout", login_path %>
 <%end%>

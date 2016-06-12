@@ -15,13 +15,13 @@ RSpec.feature 'logged in user can check out' do
     click_button "Checkout"
 
     expect(current_path).to eq("/orders")
-    expect(Order.size).to eq(1)
+    expect(Order.count).to eq(1)
 
     within("#flash_notice") do
       expect(page).to have_content("Order was successfully placed.")
     end
 
-    within("tr") do
+    within("td") do
       expect(page).to have_content(Order.last.id)
     end
 
