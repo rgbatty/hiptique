@@ -17,5 +17,24 @@ RSpec.describe Item, type: :model do
     expect(retired_item.active?).to eq false
   end
 
-  #manually write a test that asserts 0 things in db if an item is created w/o all validations
+  scenario "no item is created in db without passing validations" do
+    item = Item.new(name: "thingy")
+    expect(item.save).to eq false
+    expect(Item.count).to eq(0)
+
+    item = Item.new(name: "thingy", description: "it's great")
+    expect(item.save).to eq false
+    expect(Item.count).to eq(0)
+
+    item = Item.new(name: "thingy", price: "12")
+    expect(item.save).to eq false
+    expect(Item.count).to eq(0)
+
+
+    item = Item.new(description: "it's great", price: "12")
+    expect(item.save).to eq false
+    expect(Item.count).to eq(0)
+
+  end
+
 end
