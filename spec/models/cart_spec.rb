@@ -53,13 +53,16 @@ RSpec.describe Cart, type: :model do
     expect(cart.total).to eq 0
   end
 
-  it "can convert its contents to a hash of objects and quantities" do
+  it "can convert its contents to an array of objects" do
     item = Item.create(name: "Floppy Disc", description: "So great", price: "5.99")
     cart = Cart.new({ item.id.to_s => 1 })
 
     result = cart.obj_contents
 
-    expect(result).to eq ({item => 1})
+    expect(result[0].name).to eq ("Floppy Disc")
+    expect(result[0].description).to eq ("So great")
+    expect(result[0].price).to eq (5)
+    expect(result[0].quantity).to eq (1)
   end
 
   it "can convert an empty cart to a hash of objects and quantities" do
@@ -67,6 +70,18 @@ RSpec.describe Cart, type: :model do
 
     result = cart.obj_contents
 
-    expect(result).to eq({})
+    expect(result).to eq([])
   end
+
+  it "can update the quantity of the cart" do
+    item = Item.create(name: "Floppy Disc", description: "So great", price: "5")
+    cart = Cart.new({ item.id.to_s => 1 })
+
+    cart.update_quantity(item.id, 2)
+
+    expect(cart.contents["#{item.id}"]).to eq(2)
+    cart.update_quantity(item.id, 1)
+    expect(cart.contents["#{item.id}"]).to eq(1)
+  end
+
 end
