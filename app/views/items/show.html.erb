@@ -2,4 +2,10 @@
 <div><%= @item.description %></div>
 <div><%= @item.price %></div>
 
-<%= button_to "Add to cart", cart_items_path(id: @item) %>
+<% if @item.active? %>
+  <%= button_to "Add to cart", cart_items_path(id: @item) %>
+<% else %>
+   <p>
+     I'm Retired
+   </p>
+<% end  %>

@@ -6,5 +6,6 @@ class Item < ActiveRecord::Base
   validates :description, presence: true
   validates :price, presence: true
 
+  enum status: ["active", "retired"]
 
 end
