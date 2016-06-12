@@ -10,6 +10,8 @@ RSpec.feature "user can log in and log out" do
     fill_in "Password", with: user.password
     click_button "Log In"
 
+    expect(current_path).to eq dashboard_path
+
     within(".navbar") do
       expect(page).to have_content("Logged in as #{user.username}")
       expect(page).to have_content("Log Out")
