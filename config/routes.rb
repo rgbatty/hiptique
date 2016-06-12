@@ -15,8 +15,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-
-  patch "/user/edit", to: "users#update"#, as: "user"
+  patch "/user/edit", to: "users#update"
   get "/user/edit", to: "users#edit", as: "edit_user"
   get "/cart" => "cart_items#index", as: "cart"
   get "/dashboard" => "users#show", as: "dashboard"

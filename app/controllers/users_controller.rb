@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      redirect_to dashboard_path#user_path(current_user)
+      redirect_to dashboard_path
     else
       flash.now[:error] = @user.errors.full_messages[0]
       render :edit

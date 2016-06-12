@@ -6,7 +6,7 @@ RSpec.feature 'Visitor can view their cart' do
 
     click_link "Cart"
 
-    expect(page).to have_current_path(cart_items_path)
+    expect(page).to have_current_path(cart_path)
 
     expect(page).to have_content("Cart")
   end
