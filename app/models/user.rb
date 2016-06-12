@@ -8,8 +8,7 @@ class User < ActiveRecord::Base
 
   enum role:["default", "admin"]
 
-  # def to_param
-  #   "id"
-  # end
+  def to_param
+  end
 
 end
