@@ -44,7 +44,6 @@ group :development, :test do
   gem 'launchy'
   gem 'capybara'
   gem 'rspec-rails'
-  gem 'mocha'
   gem 'database_cleaner'
   gem 'rack_session_access'
 end

@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:welcome] = "Thanks for creating an account!"
-      redirect_to dashboard_path#user_path(@user)
+      redirect_to dashboard_path
     else
       flash.now[:error] = @user.errors.full_messages[0]
       render :new

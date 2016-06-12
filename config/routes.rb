@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :index, :create, :show]
   resources :cart_items, only: [:create, :index, :destroy, :update]
 
-  resources :orders, only: [:index]
+  resources :orders, only: [:index, :create]
 
   namespace :admin do
     get "/dashboard" => "users#show"
