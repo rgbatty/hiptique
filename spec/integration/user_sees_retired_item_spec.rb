@@ -5,7 +5,6 @@ RSpec.feature "user sees retired item" do
     item = create(:item, status: 1)
 
     visit item_path(item)
-    save_and_open_page
 
     expect(page).to have_content("I'm Retired")
     expect(page).not_to have_content("Add to Cart")
