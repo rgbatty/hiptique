@@ -11,3 +11,8 @@
 /log/*
 !/log/.keep
 /tmp
+.byebug_history
+/bye_bug
+
+#ignore simplecov
+/coverage
