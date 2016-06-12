@@ -21,7 +21,7 @@ RSpec.feature "user can checkout" do
     click_button "Checkout"
 
     expect(current_path).to eq("/orders")
-    expect(Order.size).to eq(1)
+    expect(Order.count).to eq(1)
 
     within("#flash_notice") do
       expect(page).to have_content("Order was successfully placed.")
