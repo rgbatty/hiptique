@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:welcome] = "Thanks for creating an account!"
-      redirect_to dashboard_path#user_path(@user)
+      redirect_to dashboard_path
     else
       flash.now[:error] = @user.errors.full_messages[0]
       render :new
@@ -20,7 +20,10 @@ class UsersController < ApplicationController
   end
 
   def show
+    return redirect_to login_path if current_user.nil?
+
     @user = current_user
+
     if current_user.admin?
       redirect_to admin_dashboard_path
     else

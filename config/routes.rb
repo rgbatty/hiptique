@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root :to => "items#index"
 
   resources :items, only: [:index, :show]
-  resources :users, only: [:new, :index, :create, :show]
+  resources :users, only: [:new, :index, :create]
   resources :cart_items, only: [:create, :index, :destroy, :update]
 
   resources :orders, only: [:index]
