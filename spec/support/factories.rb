@@ -3,7 +3,7 @@ FactoryGirl.define do
     username
     password "password"
     password_confirmation "password"
-    role 0
+    role "default"
   end
 
   factory :item do

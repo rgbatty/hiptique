@@ -2,12 +2,10 @@ Rails.application.routes.draw do
   root :to => "items#index"
 
   resources :items, only: [:index, :show]
-  resources :users, only: [:new, :index, :create]
+  resources :users, only: [:new, :index, :create, :show]
   resources :cart_items, only: [:create, :index, :destroy, :update]
 
   resources :orders, only: [:index]
-
-  get "/cart" => "cart_items#index", as: "cart"
 
   namespace :admin do
     get "/dashboard" => "users#show"
@@ -17,8 +15,10 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get "/dashboard" => "users#show", as: "user"
+  patch "/user/edit", to: "users#update"
+  get "/user/edit", to: "users#edit", as: "edit_user"
+  get "/cart" => "cart_items#index", as: "cart"
+  get "/dashboard" => "users#show", as: "dashboard"
   get "/:id" => "categories#show", as: "category"
-
 
 end
