@@ -10,6 +10,7 @@ FactoryGirl.define do
     description "test description"
     price "5.99"
     image "http://i.imgur.com/kgOqHMk.gif"
+    status 0
   end
 
   factory :category do

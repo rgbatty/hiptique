@@ -17,4 +17,7 @@ class UserCartsController< ApplicationController
   def index
     @cart
   end
+
+  #could make update methods, etc; will change how our form works
+  #refactor create method so that it's not doing all these things
 end
