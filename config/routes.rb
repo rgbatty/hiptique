@@ -7,6 +7,11 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index]
 
+  namespace :admin do
+    get "/dashboard" => "users#show"
+
+  end
+
   get "/cart" => "user_carts#index", as: "cart"
 
   get '/login', to: 'sessions#new'
