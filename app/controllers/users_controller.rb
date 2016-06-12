@@ -20,7 +20,10 @@ class UsersController < ApplicationController
   end
 
   def show
+    return redirect_to login_path if current_user.nil?
+
     @user = current_user
+
     if current_user.admin?
       redirect_to admin_dashboard_path
     else

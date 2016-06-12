@@ -39,11 +39,7 @@ RSpec.feature "admin login functions" do
       scenario "guest cannot view admin dashboard" do
         visit admin_dashboard_path
 
-        expect(page).not_to have_content("Admin Dashboard")
-
-        within("title") do
-          expect(page).to have_content("The page you were looking for doesn't exist")
-        end
+        expect(current_path).to eq login_path
       end
   end
 end
