@@ -2,6 +2,8 @@ FactoryGirl.define do
   factory :user do
     username
     password "password"
+    password_confirmation "password"
+    role "default"
   end
 
   factory :item do
@@ -9,10 +11,15 @@ FactoryGirl.define do
     description "test description"
     price "5.99"
     image "http://i.imgur.com/kgOqHMk.gif"
+    status 0
   end
 
   factory :category do
     name
+  end
+
+  factory :order do
+    user
   end
 
   sequence :username do |n|
@@ -22,6 +29,4 @@ FactoryGirl.define do
   sequence :name do |n|
     "item_#{n}"
   end
-
-
 end

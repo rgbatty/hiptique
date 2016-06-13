@@ -6,6 +6,7 @@ RSpec.feature "visitor becomes users and can see cart checkout" do
       item = create(:item)
 
       visit item_path(item.id)
+
       click_button "Add to cart"
       click_link "Cart"
 
@@ -25,8 +26,11 @@ RSpec.feature "visitor becomes users and can see cart checkout" do
 
       click_link "Login or Create Account to Checkout"
 
+      click_link "Create Account"
+
       fill_in "Username", with: "Ilana"
       fill_in "Password", with: "password"
+      fill_in "Confirm Password", with: "password"
 
       click_button "Create Account"
 

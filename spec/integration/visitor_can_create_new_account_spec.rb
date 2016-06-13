@@ -11,6 +11,7 @@ RSpec.feature 'visitor can create a new account' do
 
       fill_in "Username", with: new_username
       fill_in "Password", with: password
+      fill_in "Confirm Password", with: password
       click_button "Create Account"
 
       expect(current_path).to eq '/dashboard'
@@ -42,7 +43,7 @@ RSpec.feature 'visitor can create a new account' do
     end
 
     scenario "name is not unique" do
-      User.create(username: "Erin", password: "Password")
+      User.create(username: "Erin", password: "password", password_confirmation: "password")
 
       new_username = "Erin"
       password = "password"
@@ -51,6 +52,7 @@ RSpec.feature 'visitor can create a new account' do
 
       fill_in "Username", with: new_username
       fill_in "Password", with: password
+      fill_in "Confirm Password", with: password
       click_button "Create Account"
 
       within('#flash_error') do
@@ -68,6 +70,22 @@ RSpec.feature 'visitor can create a new account' do
 
       within('#flash_error') do
         expect(page).to have_content("Password can't be blank")
+      end
+    end
+
+    scenario "password does not match confirmation" do
+      new_username = "Erin"
+      password = "password"
+
+      visit new_user_path
+
+      fill_in "Username", with: new_username
+      fill_in "Password", with: password
+      fill_in "Confirm Password", with: "passw0rd"
+      click_button "Create Account"
+
+      within('#flash_error') do
+        expect(page).to have_content("Password confirmation does not match")
       end
     end
   end

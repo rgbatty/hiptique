@@ -18,15 +18,15 @@ class Cart
   end
 
   def total
-    obj_contents.inject(0) do |total, cart_item|
-      total += cart_item[0].price * cart_item[1]
+    obj_contents.inject(0) do |total, item|
+      total += item.quantity * item.price
     end
   end
 
   def obj_contents
-    contents.inject({}) do |hash, array|
-      hash[Item.find(array[0].to_i)] = array[1]
-      hash
+    contents.map do |key, value|
+      item = Item.find(key.to_i)
+      CartItem.new(item, value, value * item.price)
     end
   end
 end
