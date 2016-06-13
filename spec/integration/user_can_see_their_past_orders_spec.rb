@@ -19,10 +19,10 @@ RSpec.feature "user views past orders" do
 
     visit orders_path
 
-    expect(page).to have_content("Order ##{order1.id}")
-    expect(page).to have_content("Order ##{order2.id}")
+    expect(page).to have_content("#{order1.id}")
+    expect(page).to have_content("#{order2.id}")
 
-    expect(page).not_to have_content("Order ##{order3.id}")
-    expect(page).not_to have_content("Order ##{order4.id}")
+    expect(page).not_to have_content("#{order3.id}")
+    expect(page).not_to have_content("#{order4.id}")
   end
 end
