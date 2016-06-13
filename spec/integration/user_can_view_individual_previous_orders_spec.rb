@@ -51,6 +51,24 @@ RSpec.feature "viewing individual past orders" do
     expect(page).to have_content(order_1.status)
   end
 
+  scenario "they have cancelled orders" do
+    items = create_list(:item, 2 )
+    user = create(:user)
+    order_1 = user.orders.create(status: "cancelled")
+    cart = Cart.new({items[0] => 1, items[1] => 1})
+    order_1.create_order_items(cart)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit orders_path
+
+    click_link order_1.id
+
+    save_and_open_page
+
+    expect(page).to have_content(order_1.status)
+  end
+
 end
 
 # If the order was completed or cancelled
