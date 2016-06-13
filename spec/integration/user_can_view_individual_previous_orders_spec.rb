@@ -5,7 +5,7 @@ RSpec.feature "viewing individual past orders" do
     items = create_list(:item, 2 )
     user = create(:user)
     order = user.orders.create
-    cart = Cart.new({items[0] => 1, items[1] => 1})
+    cart = Cart.new({items[0].id => 1, items[1].id => 1})
     order.create_order_items(cart)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
@@ -37,7 +37,7 @@ RSpec.feature "viewing individual past orders" do
     items = create_list(:item, 2 )
     user = create(:user)
     order_1 = user.orders.create
-    cart = Cart.new({items[0] => 1, items[1] => 1})
+    cart = Cart.new({items[0].id => 1, items[1].id => 1})
     order_1.create_order_items(cart)
     order_1.complete
 
@@ -47,9 +47,6 @@ RSpec.feature "viewing individual past orders" do
 
     click_link order_1.id
 
-    puts order_1.updated_at
-    puts order_1.finished_at
-
     expect(page).to have_content("completed")
     expect(page).to have_content(order_1.finished_at)
   end
@@ -58,7 +55,7 @@ RSpec.feature "viewing individual past orders" do
     items = create_list(:item, 2 )
     user = create(:user)
     order_1 = user.orders.create
-    cart = Cart.new({items[0] => 1, items[1] => 1})
+    cart = Cart.new({items[0].id => 1, items[1].id => 1})
     order_1.create_order_items(cart)
     order_1.cancel
 

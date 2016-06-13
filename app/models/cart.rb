@@ -25,7 +25,7 @@ class Cart
 
   def obj_contents
     contents.map do |key, value|
-      item = Item.find(key)
+      item = Item.find(key.to_i)
       CartItem.new(item, value, value * item.price)
     end
   end

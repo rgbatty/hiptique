@@ -14,8 +14,8 @@ order_2 = jcasimir.orders.create(status: "paid")
 order_3 = jcasimir.orders.create(status: "paid")
 order_4 = jcasimir.orders.create(status: "ordered")
 
-cart_1 = Cart.new({item_1 => 2, item_3 => 1})
-cart_2 = Cart.new({item_2 => 2, item_4 => 1, item_5 => 3})
+cart_1 = Cart.new({item_1.id => 2, item_3.id => 1})
+cart_2 = Cart.new({item_2.id => 2, item_4.id => 1, item_5.id => 3})
 
 order_1.create_order_items(cart_1)
 order_2.create_order_items(cart_2)
