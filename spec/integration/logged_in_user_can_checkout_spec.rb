@@ -21,7 +21,7 @@ RSpec.feature 'logged in user can check out' do
       expect(page).to have_content("Order was successfully placed.")
     end
 
-    within("td") do
+    within("td:nth-child(1)") do
       expect(page).to have_content(Order.last.id)
     end
 

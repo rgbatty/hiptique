@@ -1,0 +1,33 @@
+<h1>Order Details</h1>
+<h4> Placed At: <%= @order.created_at %> </h2>
+
+<table class="table">
+  <th>Order Status</th>
+  <th>Order Placed At</th>
+
+  <tr>
+    <td><%= @order.status %></td>
+    <td><%= @order.get_relevant_time %></td>
+  </tr>
+</table>
+
+<table class="table">
+  <th>Item Name</th>
+  <th>Item Quantity</th>
+  <th>Item Price</th>
+  <th>Item Subtotal</th>
+
+  <% @order.items.each do |item| %>
+
+  <tr>
+    <td><%= link_to item.name, item_path(item) %></td>
+    <td><%= item.quantity(@order.id) %></td>
+    <td><%= item.price %></td>
+    <td><%= item.subtotal(@order.id) %></td>
+  </tr>
+  <% end  %>
+</table>
+
+<div id="total">
+  Total: $<%= @order.total_price %>
+</div>
