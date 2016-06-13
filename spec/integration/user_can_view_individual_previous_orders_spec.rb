@@ -68,5 +68,4 @@ RSpec.feature "viewing individual past orders" do
     expect(page).to have_content("cancelled")
     expect(page).to have_content(order_1.finished_at)
   end
-
 end

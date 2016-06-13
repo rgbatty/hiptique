@@ -30,5 +30,4 @@ class SessionsController < ApplicationController
     session[:login_redirect] = URI(request.referrer || '').path
   end
 
-
 end
