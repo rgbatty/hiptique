@@ -36,9 +36,10 @@ RSpec.feature "viewing individual past orders" do
   scenario "they have completed orders" do
     items = create_list(:item, 2 )
     user = create(:user)
-    order_1 = user.orders.create(status: "completed")
+    order_1 = user.orders.create
     cart = Cart.new({items[0] => 1, items[1] => 1})
     order_1.create_order_items(cart)
+    order_1.complete
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
@@ -46,17 +47,20 @@ RSpec.feature "viewing individual past orders" do
 
     click_link order_1.id
 
-    save_and_open_page
+    puts order_1.updated_at
+    puts order_1.finished_at
 
-    expect(page).to have_content(order_1.status)
+    expect(page).to have_content("completed")
+    expect(page).to have_content(order_1.finished_at)
   end
 
   scenario "they have cancelled orders" do
     items = create_list(:item, 2 )
     user = create(:user)
-    order_1 = user.orders.create(status: "cancelled")
+    order_1 = user.orders.create
     cart = Cart.new({items[0] => 1, items[1] => 1})
     order_1.create_order_items(cart)
+    order_1.cancel
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
@@ -64,12 +68,8 @@ RSpec.feature "viewing individual past orders" do
 
     click_link order_1.id
 
-    save_and_open_page
-
-    expect(page).to have_content(order_1.status)
+    expect(page).to have_content("cancelled")
+    expect(page).to have_content(order_1.finished_at)
   end
 
 end
-
-# If the order was completed or cancelled
-# Then I should see a timestamp when the action took place

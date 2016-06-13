@@ -13,7 +13,27 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def cancel
+    self.finished_at = DateTime.now
+    self.status = "cancelled"
+    save
+  end
+
+  def complete
+    self.finished_at = DateTime.now
+    self.status = "completed"
+    save
+  end
+
   def total_price
     order_items.sum(:subtotal)
+  end
+
+  def get_relevant_time
+    if self.status == "completed" || self.status == "cancelled"
+      self.finished_at
+    else
+      self.updated_at
+    end
   end
 end
