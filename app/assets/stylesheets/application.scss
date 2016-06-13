@@ -1,31 +1,9 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
 
 #custom-nav {
-  border-top: none;
-  box-shadow: none;
-  background-size: parent;
-  background: linear-gradient(#C7D3DC,#5B798E);
-  background: -o-linear-gradient(#C7D3DC,#5B798E);
-  background: -moz-linear-gradient(#C7D3DC,#5B798E);
-  background: -webkit-linear-gradient(#C7D3DC,#5B798E);
+
 }
 
 .navbar {
@@ -60,11 +38,28 @@ body {
   background-color: white;
 }
 
-#item_information {
-  margin: 10px;
-  background-color: white;
+.row {
+  margin-bottom: 30px;
 }
 
-#index_title {
-  background-color: white;
+.center {
+  margin-left: 10%;
+}
+
+#item-card {
+  display: inline-block;
+}
+
+#item-card img {
+  height: 200px;
+  max-width:200px;
+}
+
+#card-text {
+  text-align: center;
+}
+
+#title {
+  text-align: center;
+  margin-bottom: 30px;
 }
