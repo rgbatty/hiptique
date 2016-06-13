@@ -11,7 +11,7 @@ RSpec.feature "Authenticated User has correct privledges" do
     expect(page).to have_content(users[0].username)
     expect(page).to_not have_content(users[1].username)
 
-    expect{visit ("/users/#{users[1].id}")}.to raise_error( ActionController::RoutingError)
+    expect{visit ("/users/#{users[1].id}") }.to raise_error( ActionController::RoutingError)
   end
 
   scenario "cannot view admin dashboard" do
