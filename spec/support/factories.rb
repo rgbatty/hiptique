@@ -18,6 +18,10 @@ FactoryGirl.define do
     name
   end
 
+  factory :order do
+    user
+  end
+
   sequence :username do |n|
     "User #{n}"
   end
@@ -25,4 +29,5 @@ FactoryGirl.define do
   sequence :name do |n|
     "item_#{n}"
   end
+
 end
