@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.feature "user views past orders" do
   scenario "they view their orders" do
-
     user1 = create(:user)
     order1 = user1.orders.create
     order2 = user1.orders.create

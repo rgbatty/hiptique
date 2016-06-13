@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-
   def index
     @orders = current_user.orders
   end
@@ -12,12 +11,10 @@ class OrdersController < ApplicationController
       redirect_to orders_path
     else
       flash[:error] = "Could not checkout"
-
     end
   end
 
   def show
     @order = Order.find(params[:id])
   end
-
 end

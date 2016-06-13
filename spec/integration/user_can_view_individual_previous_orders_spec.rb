@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "viewing past orders" do
-  scenario "user can view past orders" do
+RSpec.feature "viewing individual past orders" do
+  scenario "user can view individual orders" do
     items = create_list(:item, 2 )
     user = create(:user)
     order = user.orders.create
@@ -30,6 +30,25 @@ RSpec.feature "viewing past orders" do
 
     expect(page).to have_content(order.total_price)
     expect(page).to have_content(order.created_at)
+  end
+
+
+  scenario "they have completed orders" do
+    items = create_list(:item, 2 )
+    user = create(:user)
+    order_1 = user.orders.create(status: "completed")
+    cart = Cart.new({items[0] => 1, items[1] => 1})
+    order_1.create_order_items(cart)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit orders_path
+
+    click_link order_1.id
+
+    save_and_open_page
+
+    expect(page).to have_content(order_1.status)
   end
 
 end
