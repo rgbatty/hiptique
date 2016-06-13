@@ -1,6 +1,7 @@
 <h1>Order Details</h1>
+<h4> Placed At: <%= @order.created_at %> </h2>
 
-<table>
+<table class="table">
   <th>Order Status</th>
   <th>Order Placed At</th>
 
@@ -10,7 +11,7 @@
   </tr>
 </table>
 
-<table>
+<table class="table">
   <th>Item Name</th>
   <th>Item Quantity</th>
   <th>Item Price</th>
@@ -25,7 +26,8 @@
     <td><%= item.subtotal(@order.id) %></td>
   </tr>
   <% end  %>
-  <tr>
-    <th><%= @order.total_price %></th>
-  </tr>
 </table>
+
+<div id="total">
+  Total: $<%= @order.total_price %>
+</div>

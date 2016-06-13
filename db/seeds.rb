@@ -23,4 +23,4 @@ order_3.create_order_items(cart_1)
 order_4.create_order_items(cart_2)
 
 order_1.complete
-order_1.cancel
+order_2.cancel
