@@ -19,6 +19,5 @@ class Category < ActiveRecord::Base
     else
       super
     end
-    #make sure we test for this edge case 
   end
 end

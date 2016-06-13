@@ -15,13 +15,4 @@ RSpec.describe Order, type: :model do
     expect(OrderItem.count).to eq 1
     expect("thing").to eq(order.items.last.name)
   end
-  #
-  # scenario "it automatically creates order items after save" do
-  #   item = Item.create(name: "thing", description: "great", price: "10")
-  #   cart = Cart.new({"#{item.id}" => 1})
-  #   order = Order.create
-  #
-  #   expect(OrderItem.count).to eq 1
-  #   expect("thing").to eq(order.items.last.name)
-  # end
 end

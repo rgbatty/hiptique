@@ -29,5 +29,4 @@ FactoryGirl.define do
   sequence :name do |n|
     "item_#{n}"
   end
-
 end
