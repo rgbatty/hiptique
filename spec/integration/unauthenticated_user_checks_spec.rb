@@ -8,7 +8,7 @@ RSpec.feature "Unauthenticated User has correct privledges" do
 
     expect(current_path).to eq(login_path)
 
-    expect{visit ("/users/#{user.id}")}.to raise_error( ActionController::RoutingError)
+    expect{visit ("/users/#{user.id}") }.to raise_error( ActionController::RoutingError)
   end
 
   scenario "cannot view admin dashboard" do
