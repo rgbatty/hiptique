@@ -16,17 +16,16 @@
   <th>Item Price</th>
   <th>Item Subtotal</th>
 
-  <% @order.items.each do |order_item| %>
+  <% @order.items.each do |item| %>
 
   <tr>
-    <td><%= link_to order_item.name, item_path(order_item) %></td>
-    <td><%#= order_item.quantity %></td>
-    <td>item price<%#= order_item.price %></td>
-    <td>item subtotal<%#= order_item.subtotal %></td>
+    <td><%= link_to item.name, item_path(item) %></td>
+    <td><%= item.quantity(@order.id) %></td>
+    <td><%= item.price %></td>
+    <td><%= item.subtotal(@order.id) %></td>
   </tr>
   <% end  %>
-  <%= byebug %>
   <tr>
-    <th>order total<%#= @order.total %></th>
+    <th><%= @order.total_price %></th>
   </tr>
 </table>
