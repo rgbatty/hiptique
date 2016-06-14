@@ -1,8 +1,7 @@
 <table class="table hidden" id= '<%=order_status%>_orders' >
   <caption>Orders: <%= order_status %></caption>
   <th>Order Number</th>
-
-<% @orders.each do |order| %>
+<% @orders.objects(status_number).each do |order| %>
   <tr>
     <td><%= link_to order.id, order_path(order) %></td>
   </tr>

@@ -27,4 +27,16 @@ RSpec.describe Order, type: :model do
     expect(Order.total(2)).to eq 1
     expect(Order.total(3)).to eq 1
   end
+
+  scenario "it returns all order objects with a given status" do
+    orders = create_list(:order, 3)
+    paid_order = create(:order, status: 1)
+    cancelled_order = create(:order, status: 2)
+    completed_order = create(:order, status: 3)
+
+    expect(Order.objects(0).count).to eq 3
+    expect(Order.objects(1).count).to eq 1
+    expect(Order.objects(2).count).to eq 1
+    expect(Order.objects(3).count).to eq 1
+  end
 end

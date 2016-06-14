@@ -44,7 +44,7 @@
 <% end %>
 </table>
 
-<%= render partial: 'order_table', locals: {orders: @orders, order_status: "ordered"} %>
-<%= render partial: 'order_table', locals: {orders: @orders, order_status: "paid"} %>
-<%= render partial: 'order_table', locals: {orders: @orders, order_status: "cancelled"} %>
-<%= render partial: 'order_table', locals: {orders: @orders, order_status: "completed"} %>
+<%= render partial: 'order_table', locals: {orders: @orders, order_status: "ordered", status_number: 0} %>
+<%= render partial: 'order_table', locals: {orders: @orders, order_status: "paid", status_number: 1} %>
+<%= render partial: 'order_table', locals: {orders: @orders, order_status: "cancelled", status_number: 2} %>
+<%= render partial: 'order_table', locals: {orders: @orders, order_status: "completed", status_number: 3} %>

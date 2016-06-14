@@ -41,4 +41,7 @@ class Order < ActiveRecord::Base
     where(status: status).size
   end
 
+  def self.objects(status)
+    where(status: status)
+  end
 end
