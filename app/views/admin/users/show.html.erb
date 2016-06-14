@@ -1,8 +1,8 @@
 <h1>Admin Dashboard</h1>
 <h2> Welcome, <%= @user.username %></h2>
-<%= link_to "Update Personal Account Information", edit_user_path %>
+<%= link_to "Update Account Information", edit_user_path %>
 <h3>All Orders</h3>
-<table class="table">
+<table class="table" id="all_orders">
   <th>Order Number</th>
   <th>Order Status</th>
 
@@ -12,4 +12,25 @@
     <td><%= order.status %></td>
   </tr>
 <% end %>
+</table>
+
+<table class="table" id="status_table">
+  <th>Status</th>
+  <th>Total Orders</th>
+  <tr>
+    <td>Ordered</td>
+    <td id="ordered"><%#= @orders.total_ordered %></td>
+  </tr>
+  <tr>
+    <td> Paid </td>
+    <td><%#= @orders.total_paid %></td>
+  </tr>
+  <tr>
+    <td> Cancelled </td>
+    <td><%#= @orders.total_cancelled %></td>
+  </tr>
+  <tr>
+    <td> Complete </td>
+      <td><%#= @orders.total_completed %></td>
+  </tr>
 </table>
