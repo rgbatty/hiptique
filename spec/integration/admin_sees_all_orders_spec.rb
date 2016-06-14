@@ -24,7 +24,7 @@ RSpec.feature "admin views orders" do
     end
 
     within("#ordered") do
-      expect(page).to have_content(3)
+      expect(page).to have_content(orders.count)
     end
     # expect(page).to have_content()
   end

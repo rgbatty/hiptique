@@ -15,4 +15,11 @@ RSpec.describe Order, type: :model do
     expect(OrderItem.count).to eq 1
     expect("thing").to eq(order.items.last.name)
   end
+
+  scenario "it counts all with a status of ordered" do
+    orders = create_list(:order, 3)
+    paid_order = create(:order, status: 1)
+
+    expect(Order.total_ordered).to eq 3
+  end
 end

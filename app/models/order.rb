@@ -36,4 +36,8 @@ class Order < ActiveRecord::Base
       self.updated_at
     end
   end
+
+  def self.total_ordered
+    where(status: "ordered").size
+  end
 end
