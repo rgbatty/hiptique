@@ -7,8 +7,8 @@ $(document).ready(function(){
   };
 
   toggleOrderTable("#all", "#all_orders")
-  toggleOrderTable("#ordered", "#ordered_orders")
-  toggleOrderTable("#paid", "#paid_orders")
-  toggleOrderTable("#cancelled", "#cancelled_orders")
-  toggleOrderTable("#completed", "#completed_orders")
+  toggleOrderTable("#order", "#ordered_orders")
+  toggleOrderTable("#pay", "#paid_orders")
+  toggleOrderTable("#cancel", "#cancelled_orders")
+  toggleOrderTable("#complete", "#completed_orders")
 });

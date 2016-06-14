@@ -10,7 +10,7 @@ RSpec.feature "admin views orders" do
 
     visit admin_dashboard_path
 
-    within("h3") do
+    within("#all") do
       expect(page).to have_content("All Orders")
     end
 
