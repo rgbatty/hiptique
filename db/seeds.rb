@@ -1,4 +1,5 @@
 jcasimir = User.create(username: "jcasimir", password: "test")
+admin = User.create(username: "admin", password: "admin", role: 1)
 
 storage = Category.create(name: "storage")
 item_1 = storage.items.create(name: "Floppy Disc", description: "So great", price: "5.99", image: "http://cws.gtc.edu/departments/Library/Library%20Technology%20Tips%20webpage/floppy.jpg")

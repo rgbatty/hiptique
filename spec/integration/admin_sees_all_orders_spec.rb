@@ -29,14 +29,13 @@ RSpec.feature "admin views orders" do
 
     within("#paid") do
       expect(page).to have_content(orders.count)
-    # expect(page).to have_content()
     end
 
     within("#cancelled") do
       expect(page).to have_content(orders.count)
     end
 
-    within("#completed") do 
+    within("#completed") do
       expect(page).to have_content(orders.count)
     end
   end
