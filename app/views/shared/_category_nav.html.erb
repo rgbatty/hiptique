@@ -1,0 +1,12 @@
+<nav class ="navbar navbar-default navbar-fluid-top">
+  <div class="container-fluid" id="category-nav">
+    <!-- <div class="navbar-header">
+      <%= link_to "Categories:", items_path %>
+    </div> -->
+    <ul class="nav navbar-nav" id="category-navbar">
+      <% @categories.each do |category| %>
+        <li><%= link_to category.name, category_path(category), id: "category-link" %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

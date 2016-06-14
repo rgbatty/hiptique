@@ -1,27 +1,106 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
-#custom-nav {
-
-}
-
+//----------Main Nav---------
 .navbar {
+  margin-bottom: 0;
   border: none;
+  color: #EEF5DB;
+  background: transparent;
 }
 
 #icon{
   height: auto;
   width: auto;
-  max-width: 300px;
+  max-height: 50px;
 }
 
-body {
-  background-image: url('https://static.pexels.com/photos/370/lights-night-dark-abstract.jpeg');
-  background-repeat: no-repeat;
-  font-family: 'Lato', serif;
+#brand-text {
+  padding-left: 10px;
+  padding-top: 10px;
+  float: right;
 }
 
+#site-title {
+  font-size: 20px;
+  display: inline-block;
+}
+
+#main-nav { a:link, a:visited, a:active { color:#EEF5DB; } }
+#main-nav { a:hover, { color:#FFFFFF; } }
+
+//----------Category Nav--------
+#category-nav {
+  min-height:25px;
+  background-color: #964646;
+}
+
+#category-nav .navbar-header {
+  padding-top: 5px;
+  color: grey;
+}
+
+#category-navbar {
+  width: 100%;
+    text-align: center;
+    > li {
+      float: none;
+      display: inline-block;
+    }
+}
+
+#category-link {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#category-nav { a:link, a:visited, a:hover, a:active { color:#EEF5DB; } }
+
+//----------Index Header---------
+#page_header {
+  width: 100%;
+  height: 60vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden
+}
+
+#page_header img {
+  flex-shrink:0;
+  min-width:100%;
+  min-height:100%;
+  -webkit-filter: brightness(40%);
+}
+
+#scroll-icon {
+  position: absolute;
+  top: 90%;
+  left: 47.5%;
+  z-index: 2;
+  font-size: 3em;
+  color: white;
+}
+
+#greeting-container {
+  position: absolute;
+  top: 40%;
+  left: 70%;
+}
+
+#greeting {
+  position: relative;
+  z-index: 100;
+  padding: 20px;
+  background: rgb(34,34,34); /* for IE */
+  background: rgba(34,34,34,0.75);
+}
+
+#greeting h2, #greeting h5, #greeting h5 a { color: #fefefe; font-weight: normal; }
+#greeting h2 { margin-bottom: 10px }
+#greeting h5 { margin-top: 10px }
+
+//----------Flashes---------
 .flash_message {
   color: white;
   background-color: #8ACC7C;
@@ -34,18 +113,7 @@ body {
   color: white;
 }
 
-#site_content {
-  background-color: white;
-}
-
-.row {
-  margin-bottom: 30px;
-}
-
-.center {
-  margin-left: 10%;
-}
-
+//----------Item Cards---------
 #item-card {
   display: inline-block;
 }
@@ -59,7 +127,27 @@ body {
   text-align: center;
 }
 
-#title {
-  text-align: center;
+a:visited {
+  color: #EEF5DB;
+}
+
+//----------Bootstrap---------
+.row {
   margin-bottom: 30px;
+}
+
+.center {
+  margin-left: 10%;
+}
+
+//----------General---------
+html {
+  height: 100%
+}
+
+body {
+  background-color: #D6D1B1;
+  height: 100%;
+  //background-image: url('https://static.pexels.com/photos/370/lights-night-dark-abstract.jpeg');
+  font-family: 'Lato', serif;
 }
