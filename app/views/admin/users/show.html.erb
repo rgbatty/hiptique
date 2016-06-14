@@ -19,18 +19,18 @@
   <th>Total Orders</th>
   <tr>
     <td>Ordered</td>
-    <td id="ordered"><%= @orders.total_ordered %></td>
+    <td id="ordered"><%= @orders.total("ordered") %></td>
   </tr>
   <tr>
     <td> Paid </td>
-    <td><%#= @orders.total_paid %></td>
+    <td id="paid"><%= @orders.total("paid") %></td>
   </tr>
   <tr>
     <td> Cancelled </td>
-    <td><%#= @orders.total_cancelled %></td>
+    <td id="cancelled"><%= @orders.total("cancelled") %></td>
   </tr>
   <tr>
-    <td> Complete </td>
-      <td><%#= @orders.total_completed %></td>
+    <td> Completed </td>
+      <td id="completed"><%= @orders.total("completed") %></td>
   </tr>
 </table>
