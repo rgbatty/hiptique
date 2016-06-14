@@ -1,27 +1,40 @@
 <h2>My Cart</h2>
 
+<table class="table" id="cart-table">
+  <th>Image</th>
+  <th>Name</th>
+  <th>Description</th>
+  <th>Price</th>
+  <th>Qty</th>
+  <th>Subtotal</th>
+  <th>Update</th>
+  <th>Remove</th>
 <% @cart.obj_contents.each do |item| %>
-  <div id="item-<%= item.name %>">
-    <img src="<%= item.image %>"></img>
-    <div><%= item.name %><div>
-    <%= item.description %>
-    <%= item.price %>
+  <tr>
+    <td><img src="<%= item.image %>" class="img-thumbnail" id="cart-thumb"></img></td>
+    <td><%= item.name %></td>
+    <td><%= item.description %></td>
+    <td><%= item.price %></td>
+    <td>$<%= item.subtotal %></td>
 
     <%= form_tag(cart_item_path(item), method: :put) do %>
-      <%= text_field_tag(:quantity, item.quantity) %>
-      <%= hidden_field_tag :item_id , item.id %>
-      <%= submit_tag("Update") %>
+      <td><%= select_tag(:quantity, options_for_select((1..10).to_a, item.quantity)) %></td>
+      <td><%= submit_tag("Update") %></td>
     <% end %>
 
-    <%= button_to "Remove", cart_item_path(item), method: :delete %>
-  </div>
+    <td><%= button_to "Remove", cart_item_path(item), method: :delete %></td>
+  </tr>
 <% end %>
+</table>
 
-Total Price: $<%= @cart.total %>
-<div id="user_buttons">
-<% if current_user %>
-<%= button_to "Checkout", orders_path, method: :post%>
-<% else %>
-<%= link_to "Login or Create Account to Checkout", login_path %>
-<%end%>
+<div>
+  <div id="user_buttons">
+    <% if current_user %>
+      <%= button_to "Checkout", orders_path, method: :post, id: "checkout"%>
+    <% else %>
+      <%= link_to "Login or Create Account to Checkout", login_path %>
+    <%end%>
+  </div>
+
+  <div id="total">Total Price: $<%= @cart.total %></div>
 </div>

@@ -131,6 +131,24 @@ a:visited {
   color: #EEF5DB;
 }
 
+//----------Cart---------
+#cart-thumb {
+  height: 50px;
+  max-width:50px;
+}
+
+#cart-table td {
+  vertical-align:middle;
+}
+
+#total {
+  margin-left: 85%;
+}
+
+#checkout {
+  float: left;
+}
+
 //----------Bootstrap---------
 .row {
   margin-bottom: 30px;
