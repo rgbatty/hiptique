@@ -14,8 +14,18 @@ RSpec.feature "admin views orders" do
       expect(page).to have_content("All Orders")
     end
 
-    within("table") do
-        expect(page).to have_content(orders[0].id)
+    within("#all_orders") do
+      expect(page).to have_link(orders[0].id)
+      expect(page).to have_link(orders[1].id)
+      expect(page).to have_link(orders[2].id)
+      expect(page).to have_content(orders[0].status)
+      expect(page).to have_content(orders[1].status)
+      expect(page).to have_content(orders[2].status)
     end
+
+    within("#ordered") do
+      expect(page).to have_content(3)
+    end
+    # expect(page).to have_content()
   end
 end
