@@ -1,8 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "admin can change order status" do
   scenario "they changed the status, duh" do
-
     items = create_list(:item, 2)
     admin = create(:user, role: 1)
     user = create(:user)
@@ -16,22 +15,22 @@ RSpec.feature "admin can change order status" do
 
     within("#status") do
       expect(page).to have_content("Status: ordered")
-      expect(page).to have_content("Update Status")
+      expect(page).to have_button("Update Status")
     end
-save_and_open_page
-    select "Paid", from: "Paid"
+    select "paid", from: "order[status]"
+    click_button "Update Status"
 
     within("#status") do
       expect(page).to have_content("Status: paid")
-      expect(page).to have_content("Update Status")
+      expect(page).to have_button("Update Status")
     end
 
-    select "Cancelled", from: "Cancelled"
+    select "cancelled", from: "order[status]"
+    click_button "Update Status"
 
     within("#status") do
       expect(page).to have_content("Status: cancelled")
       expect(page).not_to have_content("Update Status")
     end
-
   end
 end

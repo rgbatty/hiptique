@@ -1,8 +1,14 @@
 <h1>Order Details</h1>
 <table id="status">
   <tr>
-    <td>Status: <%= @order.status %></td>
-    <td><%= render partial: 'ordered_status' %></td>
+    <td>Status:
+    <% if @order.editable_status? %>
+      <td><%= render partial: 'ordered_status' %></td>
+    <% else  %>
+      <%= @order.status %>
+    <% end %></td>
+
+
   </tr>
 </table>
 

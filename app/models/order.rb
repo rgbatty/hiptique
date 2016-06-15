@@ -25,7 +25,6 @@ class Order < ActiveRecord::Base
     save
   end
 
-
   def total_price
     order_items.sum(:subtotal)
   end
@@ -46,11 +45,19 @@ class Order < ActiveRecord::Base
     where(status: status)
   end
 
+  def editable_status?
+    if ordered? || paid?
+      true
+    else
+      false
+    end
+  end
+
   def status_options
     if ordered?
-      ["paid", "cancelled"]
-    elsif paid?
-      ["completed", "cancelled"]
+      ["ordered", "paid", "cancelled"]
+    else paid?
+      ["paid", "completed", "cancelled"]
     end
   end
 end
