@@ -18,5 +18,4 @@ class Item < ActiveRecord::Base
     order_item = self.order_items.find_by(order_id: order_id)
     order_item.subtotal
   end
-
 end
