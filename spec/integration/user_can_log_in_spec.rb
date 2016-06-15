@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "user can log in and log out" do
   scenario "they see the link to log in " do
@@ -11,7 +11,7 @@ RSpec.feature "user can log in and log out" do
     click_button "Log In"
 
     expect(current_path).to eq dashboard_path
-    
+
     within("#main-navbar") do
       expect(page).to have_content("Logged in as #{user.username}")
       expect(page).to have_content("Log Out")

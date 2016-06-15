@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "user can checkout" do
   scenario "visitor checkout process" do

@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "Visitor can see all items by category", :type => :feature do
   scenario "visitor visits a category page" do

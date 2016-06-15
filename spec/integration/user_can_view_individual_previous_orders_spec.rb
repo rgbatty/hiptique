@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "viewing individual past orders" do
   scenario "user can view individual orders" do

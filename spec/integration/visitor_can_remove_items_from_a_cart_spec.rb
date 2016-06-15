@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.feature 'Visitor can remove items from their cart' do
-  scenario 'They visit their cart' do
+  scenario "They visit their cart" do
     item = create(:item)
 
     page.set_rack_session(:cart => {item.id => 1})
     visit cart_path
-    
+
     within("#cart-table-#{item.name}") do
       click_button "Remove"
     end

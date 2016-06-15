@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "admin login functions" do
   scenario "admin logs in" do
@@ -11,21 +11,23 @@ RSpec.feature "admin login functions" do
 
     click_button "Log In"
 
-    expect(current_path).to eq('/admin/dashboard')
+    expect(current_path).to eq("/admin/dashboard")
     expect(page).to have_content("Welcome, #{admin.username}")
   end
 
   scenario "default user cannot view admin dashboard" do
     user = create(:user)
 
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).
+      and_return(user)
 
     visit admin_dashboard_path
 
     expect(page).not_to have_content("Admin Dashboard")
 
     within("title") do
-      expect(page).to have_content("The page you were looking for doesn't exist")
+      expect(page).
+        to have_content("The page you were looking for doesn't exist")
     end
   end
 
