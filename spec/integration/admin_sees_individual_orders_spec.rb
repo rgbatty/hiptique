@@ -14,7 +14,7 @@ RSpec.feature "admin sees orders" do
     visit order_path(order)
 
     within("#site_content") do
-      expect(page).to have_content("Placed at: #{order.created_at}" )
+      expect(page).to have_content("Placed at: #{order.created_at}")
     end
 
     within("#status") do

@@ -58,6 +58,5 @@ RSpec.describe Order, type: :model do
 
     expect(default_order.status_options).to eq(["ordered", "paid", "cancelled"])
     expect(paid_order.status_options).to eq(["paid", "completed", "cancelled"])
-
   end
 end

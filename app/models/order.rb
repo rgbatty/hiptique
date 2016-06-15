@@ -25,7 +25,6 @@ class Order < ActiveRecord::Base
     save
   end
 
-
   def total_price
     order_items.sum(:subtotal)
   end

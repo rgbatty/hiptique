@@ -1,8 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "admin can change order status" do
   scenario "they changed the status, duh" do
-
     items = create_list(:item, 2)
     admin = create(:user, role: 1)
     user = create(:user)
@@ -33,6 +32,5 @@ RSpec.feature "admin can change order status" do
       expect(page).to have_content("Status: cancelled")
       expect(page).not_to have_content("Update Status")
     end
-
   end
 end
