@@ -7,7 +7,7 @@
        <%= link_to (image_tag item.image, class: "img-thumbnail"), item_path(item) %>
        <div id="card-text">
          <p><%= item.name %> - $<%= item.price %></p>
-         <%= button_to "Add to cart", cart_items_path(id: item), class: "btn btn-primary btn-lg btn-block" %>
+         <%= button_to "Add to cart", cart_path(id: item), class: "btn btn-lg btn-block" %>
        </div>
      </div>
    </div>
