@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "Authenticated User has correct privledges" do
   scenario "cannot view another user's data" do
@@ -24,12 +24,18 @@ RSpec.feature "Authenticated User has correct privledges" do
   end
 
   scenario "cannot manually create admin user role", type: :request do
-    post "/users", user: {username: "test", password: "test", password_confirmation: "test", role: 1}
+    post "/users", user: { username: "test", password: "test",
+                           password_confirmation: "test",
+                           email: "test@test.com",
+                           email_confirmation: "test@test.com",
+                           name: "John Doe",
+                           address: "1234 Fake Street", city: "Faketown",
+                           state: "FT", zip: "12345", role: 1 }
 
     expect(response).to redirect_to(dashboard_path)
     follow_redirect!
 
     expect(response).to render_template(:show)
-    expect(response.body).to include("Welcome, test")
+    expect(response.body).to include("Welcome, John Doe")
   end
 end

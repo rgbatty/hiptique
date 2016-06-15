@@ -1,0 +1,5 @@
+<h2> Welcome, <%= @user.name %></h2>
+<%= link_to "Update Personal Account Information", edit_user_path %>
+<% if @user.orders.any? %>
+  <%= link_to "Order History", orders_path %>
+<% end %>

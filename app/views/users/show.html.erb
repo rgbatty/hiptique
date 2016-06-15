@@ -1,6 +1,1 @@
-<h1> Welcome, <%= @user.username %></h1>
-<% if @user.orders.exists? %>
-  <%= link_to "View My Orders", orders_path %>
-<% end %>
-
-<%= link_to "Update Account Information", edit_user_path(@user) %>
+<%= render "shared/dashboard" %>

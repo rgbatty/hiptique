@@ -1,17 +1,28 @@
 <h1>Order Details</h1>
-<h4> Placed At: <%= @order.created_at %> </h2>
+<div id="user-info">
+  <p><%= @order.user.name %></p>
+  <p>
+    <%= "#{@order.user.address}" %>
+    <%= "#{@order.user.city}, #{@order.user.state} #{@order.user.zip}" %>
+  </p>
+</div>
 
-<table class="table">
-  <th>Order Status</th>
-  <th>Order Placed At</th>
-
+<table id="status">
   <tr>
-    <td><%= @order.status %></td>
-    <td><%= @order.get_relevant_time %></td>
+    <td>Status:
+    <% if @order.editable_status? %>
+      <td><%= render partial: 'ordered_status' %></td>
+    <% else  %>
+      <%= @order.status %>
+    <% end %></td>
+
   </tr>
 </table>
 
-<table class="table">
+<h4> Placed at: <%= @order.created_at %> </h2>
+<h4><%= @order.status.capitalize %> at: <%= @order.get_relevant_time %></h4>
+
+<table class="table" id="items">
   <th>Item Name</th>
   <th>Item Quantity</th>
   <th>Item Price</th>
@@ -25,7 +36,7 @@
     <td><%= item.price %></td>
     <td><%= item.subtotal(@order.id) %></td>
   </tr>
-  <% end  %>
+  <% end %>
 </table>
 
 <div id="total">
