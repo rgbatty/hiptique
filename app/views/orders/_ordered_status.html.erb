@@ -1,0 +1,7 @@
+<%= form_for(@order) do |f| %>
+  <%= f.label "Paid" %>
+  <%= f.select @order.status_options %>
+  <%= f.label "Cancelled" %>
+  <%= f.select "Cancelled" %>
+  <%= f.submit "Update Status" %>
+<% end  %>

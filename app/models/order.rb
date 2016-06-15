@@ -25,6 +25,7 @@ class Order < ActiveRecord::Base
     save
   end
 
+
   def total_price
     order_items.sum(:subtotal)
   end
@@ -43,5 +44,13 @@ class Order < ActiveRecord::Base
 
   def self.objects(status)
     where(status: status)
+  end
+
+  def status_options
+    if ordered?
+      ["paid", "cancelled"]
+    elsif paid?
+      ["completed", "cancelled"]
+    end
   end
 end

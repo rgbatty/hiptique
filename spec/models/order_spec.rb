@@ -39,4 +39,17 @@ RSpec.describe Order, type: :model do
     expect(Order.objects(2).count).to eq 1
     expect(Order.objects(3).count).to eq 1
   end
+
+  scenario "it changes status based on current status" do
+    default_order = create(:order)
+    paid_order = create(:order, status: 1)
+    completed_order = create(:order, status: 3)
+    cancelled_order = create(:order, status: 2)
+
+    expect(default_order.status_options).to eq(["paid", "cancelled"])
+    expect(paid_order.status_options).to eq(["completed", "cancelled"])
+    expect(completed_order.status_options).to eq(nil)
+    expect(cancelled_order.status_options).to eq(nil)
+
+  end
 end
