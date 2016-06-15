@@ -7,12 +7,8 @@
     <% else  %>
       <%= @order.status %>
     <% end %></td>
-
-
   </tr>
 </table>
-
-
 
 <h4> Placed at: <%= @order.created_at %> </h2>
 <h4><%= @order.status.capitalize %> at: <%= @order.get_relevant_time %></h4>

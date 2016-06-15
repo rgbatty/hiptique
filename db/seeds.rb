@@ -2,7 +2,7 @@ jcasimir = User.create(username: "jcasimir", password: "test", email: "jcasimir@
 admin = User.create(username: "admin", password: "admin", role: 1, email: "jcasimir@example.com", name: "Jeff Casimir", address: "1510 Blake St", city: "Denver", state: "CO", zip: "80111")
 
 storage = Category.create(name: "storage")
-item_1 = storage.items.create(name: "Floppy Disc", description: "So great", price: "5.99", image: "http://cws.gtc.edu/departments/Library/Library%20Technology%20Tips%20webpage/floppy.jpg")
+item_1 = storage.items.create(name: "Floppy Disc", description: "Need to store a whopping 1.44 MB of data? This bad boy has got you covered.", price: "5.99", image: "http://cws.gtc.edu/departments/Library/Library%20Technology%20Tips%20webpage/floppy.jpg")
 item_2 = storage.items.create(name: "CD", description: "Pretty great too", price: "2.99", image: "https://upload.wikimedia.org/wikipedia/commons/d/d5/CD_autolev_crop.jpg")
 
 electronics = Category.create(name: "electronics")
