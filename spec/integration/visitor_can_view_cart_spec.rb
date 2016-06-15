@@ -1,7 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.feature 'Visitor can view their cart' do
-  scenario 'They visit their cart from the home page' do
+RSpec.feature "Visitor can view their cart" do
+  scenario "They visit their cart from the home page" do
     visit root_path
 
     click_link "Cart"

@@ -1,7 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.feature 'logged in user can check out' do
-  scenario 'they check out' do
+RSpec.feature "logged in user can check out" do
+  scenario "they check out" do
     item = create(:item)
     user = create(:user)
 
@@ -11,7 +11,6 @@ RSpec.feature 'logged in user can check out' do
     click_button("Add to cart")
 
     visit cart_path
-
     click_button "Checkout"
 
     expect(current_path).to eq("/orders")
