@@ -1,4 +1,12 @@
 <h1>Order Details</h1>
+<div id="user-info">
+  <p><%= @order.user.name %></p>
+  <p>
+    <%= "#{@order.user.address}" %>
+    <%= "#{@order.user.city}, #{@order.user.state} #{@order.user.zip}" %>
+  </p>
+</div>
+
 <table id="status">
   <tr>
     <td>Status:
