@@ -10,7 +10,7 @@ RSpec.feature "admin visits personal dashboard to edit account data" do
 
     expect(current_path).to eq(admin_dashboard_path)
 
-    click_link "Update Account Information"
+    click_link "Update Personal Account Information"
 
     expect(current_path).to eq(edit_user_path)
     expect(page).to have_selector("input#user_username", count: 1)

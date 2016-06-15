@@ -13,13 +13,12 @@ RSpec.feature "admin sees orders" do
 
     visit order_path(order)
 
-    within("h4") do
-      expect(page).to have_content("Placed At: #{order.created_at}")
+    within("#site_content") do
+      expect(page).to have_content("Placed at: #{order.created_at}" )
     end
 
-    within("#status_table") do
-      expect(page).to have_content("Order Status")
-      expect(page).to have_content("ordered")
+    within("#status") do
+      expect(page).to have_content("Status: ordered")
     end
 
     within("#items") do
