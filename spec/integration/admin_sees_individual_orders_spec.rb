@@ -34,7 +34,6 @@ RSpec.feature "admin sees orders" do
       expect(page).to have_content(items[1].subtotal(order.id))
     end
 
-
     within("#total") do
       expect(page).to have_content(order.total_price)
     end
