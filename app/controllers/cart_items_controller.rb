@@ -7,7 +7,10 @@ class CartItemsController< ApplicationController
   def create
     item = Item.find(params[:id])
     @cart.add_item(item.id)
-    flash[:add_item] = "Successfully added #{view_context.link_to item.name, item_path(item)} to your cart!"
+    flash[:add_item] = "Successfully added " \
+                       "#{view_context.link_to item.name, item_path(item)}" \
+                       "to your cart!"
+
     session[:cart] = @cart.contents
     redirect_to :back
   end
@@ -22,7 +25,9 @@ class CartItemsController< ApplicationController
   def destroy
     item = Item.find(params[:id])
     @cart.remove_item(item.id)
-    flash[:remove_item] = "Successfully removed #{view_context.link_to item.name, item_path(item)} from your cart."
+    flash[:remove_item] = "Successfully removed " \
+                          "#{view_context.link_to item.name, item_path(item)}" \
+                          "from your cart."
     session[:cart] = @cart.contents
     redirect_to cart_path
   end
