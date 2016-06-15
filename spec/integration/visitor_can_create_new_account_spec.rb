@@ -3,14 +3,29 @@ require "rails_helper"
 RSpec.feature "visitor can create a new account" do
   context "with valid params" do
     scenario "they see the form to create an account" do
-      new_username = "Erin"
+      new_username = "jdoe"
       password = "password"
+      email = "test@test.com"
+      full_name = "John Doe"
+      address = "1234 Fake Street"
+      city = "Faketown"
+      state = "FT"
+      zip = "12345"
+      sender = "do-not-reply@hiptique.herokuapp.com"
 
       visit login_path
       click_link "Create Account"
 
       fill_in "Username", with: new_username
       fill_in "Password", with: password
+      fill_in "Email", with: email
+      fill_in "Full Name", with: full_name
+      fill_in "Address", with: address
+      fill_in "City", with: city
+      fill_in "State", with: state
+      fill_in "Zip", with: zip
+
+      fill_in "Confirm Email", with: email
       fill_in "Confirm Password", with: password
       click_button "Create Account"
 
@@ -25,6 +40,10 @@ RSpec.feature "visitor can create a new account" do
         expect(page).to have_content("Log Out")
         expect(page).not_to have_content("Log In")
       end
+
+      mail = ActionMailer::Base.deliveries.last
+      expect(mail.to).to eq [email]
+      expect(mail.from).to eq [sender]
     end
   end
 
