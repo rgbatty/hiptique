@@ -15,7 +15,7 @@ RSpec.feature "Visitor can modify the quantity of items in their cart" do
     expect(page).to have_current_path(cart_path)
 
     expect(page).to have_select("quantity", selected: "2")
-    expect(page).to have_content "Total Price: $10"
+    expect(page).to have_content "Total Price: $11.98"
 
     select "1", from: "quantity"
     click_button 'Update'
@@ -23,6 +23,6 @@ RSpec.feature "Visitor can modify the quantity of items in their cart" do
     expect(page).to have_current_path(cart_path)
 
     expect(page).to have_select("quantity", selected: "1")
-    expect(page).to have_content "Total Price: $5"
+    expect(page).to have_content "Total Price: $5.99"
   end
 end

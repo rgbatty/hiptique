@@ -26,7 +26,7 @@ RSpec.describe Cart, type: :model do
 
     cart = Cart.new({ item_1.id.to_s => 3, item_2.id.to_s => 1 })
 
-    expect(cart.total).to eq 20
+    expect(cart.total).to eq 23.96
   end
 
   it "can add items to an empty cart" do
@@ -61,7 +61,7 @@ RSpec.describe Cart, type: :model do
 
     expect(result[0].name).to eq ("Floppy Disc")
     expect(result[0].description).to eq ("So great")
-    expect(result[0].price).to eq (5)
+    expect(result[0].price).to eq (5.99)
     expect(result[0].quantity).to eq (1)
   end
 
