@@ -1,3 +1,49 @@
 <h1>Admin Dashboard</h1>
-<h2> Welcome, <%= @user.username %></h2>
-<%= link_to "Update Personal Account Information", edit_user_path %>
+<%= render "shared/dashboard" %>
+
+<table class="table" id="status_table">
+  <th>Status</th>
+  <th>Total Orders</th>
+  <tr>
+    <td>Ordered</td>
+    <td id="ordered"><%= @orders.total("ordered") %></td>
+  </tr>
+  <tr>
+    <td> Paid </td>
+    <td id="paid"><%= @orders.total("paid") %></td>
+  </tr>
+  <tr>
+    <td> Cancelled </td>
+    <td id="cancelled"><%= @orders.total("cancelled") %></td>
+  </tr>
+  <tr>
+    <td> Completed </td>
+    <td id="completed"><%= @orders.total("completed") %></td>
+  </tr>
+</table>
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default" id="all">All Orders</button>
+  <button type="button" class="btn btn-default" id="order">Ordered</button>
+  <button type="button" class="btn btn-default" id="pay">Paid</button>
+  <button type="button" class="btn btn-default" id="cancel">Cancelled</button>
+  <button type="button" class="btn btn-default" id="complete">Completed</button>
+</div>
+
+<table class="table hidden" id="all_orders">
+  <caption>All Orders</caption>
+  <th>Order Number</th>
+  <th>Order Status</th>
+
+<% @orders.each do |order| %>
+  <tr>
+    <td><%= link_to order.id, order_path(order) %></td>
+    <td><%= order.status %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= render partial: 'order_table', locals: {orders: @orders, order_status: "ordered", status_number: 0} %>
+<%= render partial: 'order_table', locals: {orders: @orders, order_status: "paid", status_number: 1} %>
+<%= render partial: 'order_table', locals: {orders: @orders, order_status: "cancelled", status_number: 2} %>
+<%= render partial: 'order_table', locals: {orders: @orders, order_status: "completed", status_number: 3} %>

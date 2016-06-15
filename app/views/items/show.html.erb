@@ -1,11 +1,19 @@
-<h2><%= @item.name %></h2>
-<div><%= @item.description %></div>
-<div><%= @item.price %></div>
+<div class="row">
+  <div class="col-md-4" id="item_image">
+    <img src="<%= @item.image %>" alt="<%= @item.name %>" class="img-thumbnail"/>
+  </div>
 
-<% if @item.active? %>
-  <%= button_to "Add to cart", cart_items_path(id: @item) %>
-<% else %>
-   <p>
-     Item Retired
-   </p>
-<% end  %>
+  <div class="col-md-8" id="item_details">
+    <h2><%= @item.name %></h2>
+    <p><%= @item.description %></p>
+    <h5>$<%= @item.price %></h5>
+
+    <% if @item.active? %>
+    <%= button_to "Add to cart", cart_items_path(id: @item), class: "btn" %>
+    <% else %>
+    <p>
+      Item Retired
+    </p>
+    <% end  %>
+  </div>
+</div>

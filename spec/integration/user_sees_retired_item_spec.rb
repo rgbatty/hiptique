@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "user sees retired item" do
   scenario "they view a retired item" do
