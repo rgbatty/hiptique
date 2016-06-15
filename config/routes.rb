@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   patch "/user/edit", to: "users#update"
+  get "admin/user/edit" => "users#edit", as: "admin_edit_user"
   get "/user/edit", to: "users#edit", as: "edit_user"
   get "/cart" => "cart_items#index", as: "cart"
   get "/dashboard" => "users#show", as: "dashboard"

@@ -3,14 +3,14 @@ class CartItemsController< ApplicationController
     @cart
     @order = Order.new
   end
-  
+
 
   def create
     item = Item.find(params[:id])
     @cart.add_item(item.id)
     flash[:add_item] = "Successfully added " \
                        "#{view_context.link_to item.name, item_path(item)}" \
-                       "to your cart!"
+                       " to your cart!"
 
     session[:cart] = @cart.contents
     redirect_to :back

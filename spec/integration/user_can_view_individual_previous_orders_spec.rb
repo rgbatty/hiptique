@@ -14,6 +14,12 @@ RSpec.feature "viewing individual past orders" do
     click_link order.id
     expect(current_path).to eq(order_path(order))
 
+    expect(page).to have_content(user.name)
+    expect(page).to have_content(user.address)
+    expect(page).to have_content(user.city)
+    expect(page).to have_content(user.state)
+    expect(page).to have_content(user.zip)
+
     expect(page).to have_link(items[0].name)
     expect(page).to have_content(items[0].quantity(order.id))
     expect(page).to have_content(items[0].price)

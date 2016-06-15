@@ -1,4 +1,12 @@
 <h1>Order Details</h1>
+<div id="user-info">
+  <p><%= @order.user.name %></p>
+  <p>
+    <%= "#{@order.user.address}" %>
+    <%= "#{@order.user.city}, #{@order.user.state} #{@order.user.zip}" %>
+  </p>
+</div>
+
 <table id="status">
   <tr>
     <td>Status:
@@ -8,11 +16,8 @@
       <%= @order.status %>
     <% end %></td>
 
-
   </tr>
 </table>
-
-
 
 <h4> Placed at: <%= @order.created_at %> </h2>
 <h4><%= @order.status.capitalize %> at: <%= @order.get_relevant_time %></h4>
