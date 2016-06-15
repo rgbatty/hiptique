@@ -44,4 +44,20 @@ class Order < ActiveRecord::Base
   def self.objects(status)
     where(status: status)
   end
+
+  def editable_status?
+    if ordered? || paid?
+      true
+    else
+      false
+    end
+  end
+
+  def status_options
+    if ordered?
+      ["ordered", "paid", "cancelled"]
+    else paid?
+      ["paid", "completed", "cancelled"]
+    end
+  end
 end
