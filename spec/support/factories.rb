@@ -3,6 +3,12 @@ FactoryGirl.define do
     username
     password "password"
     password_confirmation "password"
+    email "email@test.com"
+    name "John Doe"
+    address "1234 Fake Street"
+    city  "Faketown"
+    state "FT"
+    zip "1234"
     role "default"
   end
 
