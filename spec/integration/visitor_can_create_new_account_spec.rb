@@ -24,7 +24,6 @@ RSpec.feature "visitor can create a new account" do
       fill_in "City", with: city
       fill_in "State", with: state
       fill_in "Zip", with: zip
-
       fill_in "Confirm Email", with: email
       fill_in "Confirm Password", with: password
       click_button "Create Account"
@@ -50,10 +49,24 @@ RSpec.feature "visitor can create a new account" do
   context "with invalid params" do
     scenario "name is not present" do
       password = "password"
+      email = "test@test.com"
+      full_name = "John Doe"
+      address = "1234 Fake Street"
+      city = "Faketown"
+      state = "FT"
+      zip = "12345"
 
       visit new_user_path
 
       fill_in "Password", with: password
+      fill_in "Email", with: email
+      fill_in "Full Name", with: full_name
+      fill_in "Address", with: address
+      fill_in "City", with: city
+      fill_in "State", with: state
+      fill_in "Zip", with: zip
+      fill_in "Confirm Email", with: email
+      fill_in "Confirm Password", with: password
       click_button "Create Account"
 
       expect(page).to have_content("Username can't be blank")
@@ -62,15 +75,28 @@ RSpec.feature "visitor can create a new account" do
     end
 
     scenario "name is not unique" do
-      User.create(username: "Erin", password: "password", password_confirmation: "password")
+      user = create(:user)
 
-      new_username = "Erin"
+      username = user.username
       password = "password"
+      email = "test@test.com"
+      full_name = "John Doe"
+      address = "1234 Fake Street"
+      city = "Faketown"
+      state = "FT"
+      zip = "12345"
 
       visit new_user_path
 
-      fill_in "Username", with: new_username
+      fill_in "Username", with: username
       fill_in "Password", with: password
+      fill_in "Email", with: email
+      fill_in "Full Name", with: full_name
+      fill_in "Address", with: address
+      fill_in "City", with: city
+      fill_in "State", with: state
+      fill_in "Zip", with: zip
+      fill_in "Confirm Email", with: email
       fill_in "Confirm Password", with: password
       click_button "Create Account"
 
@@ -80,11 +106,24 @@ RSpec.feature "visitor can create a new account" do
     end
 
     scenario "password is not present" do
-      new_username = "Erin"
+      username = "Erin"
+      email = "test@test.com"
+      full_name = "John Doe"
+      address = "1234 Fake Street"
+      city = "Faketown"
+      state = "FT"
+      zip = "12345"
 
       visit new_user_path
 
-      fill_in "Username", with: new_username
+      fill_in "Username", with: username
+      fill_in "Email", with: email
+      fill_in "Full Name", with: full_name
+      fill_in "Address", with: address
+      fill_in "City", with: city
+      fill_in "State", with: state
+      fill_in "Zip", with: zip
+      fill_in "Confirm Email", with: email
       click_button "Create Account"
 
       within('#flash_error') do
@@ -93,13 +132,26 @@ RSpec.feature "visitor can create a new account" do
     end
 
     scenario "password does not match confirmation" do
-      new_username = "Erin"
+      username = "jdoe"
       password = "password"
+      email = "test@test.com"
+      full_name = "John Doe"
+      address = "1234 Fake Street"
+      city = "Faketown"
+      state = "FT"
+      zip = "12345"
 
       visit new_user_path
 
-      fill_in "Username", with: new_username
+      fill_in "Username", with: username
       fill_in "Password", with: password
+      fill_in "Email", with: email
+      fill_in "Full Name", with: full_name
+      fill_in "Address", with: address
+      fill_in "City", with: city
+      fill_in "State", with: state
+      fill_in "Zip", with: zip
+      fill_in "Confirm Email", with: email
       fill_in "Confirm Password", with: "passw0rd"
       click_button "Create Account"
 

@@ -20,5 +20,4 @@ RSpec.describe User, type: :model do
 
   it { should validate_confirmation_of(:password).with_message("does not match") }
   it { should validate_confirmation_of(:email).with_message("does not match") }
-
 end

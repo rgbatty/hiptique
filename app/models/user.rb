@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
   validates :zip, presence: :true
 
   has_secure_password validations: false
-  validates_confirmation_of :password, :message => "does not match"
-  validates_confirmation_of :email, :message => "does not match"
+  validates_confirmation_of :password, message: "does not match"
+  validates_confirmation_of :email, message: "does not match"
 
 
   enum role:["default", "admin"]
