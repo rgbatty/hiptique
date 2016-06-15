@@ -1,4 +1,4 @@
-  class ChangeColumnItems < ActiveRecord::Migration
+class ChangeColumnItems < ActiveRecord::Migration
   def change
     change_column :items, :price, :decimal
   end
