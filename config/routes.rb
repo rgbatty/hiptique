@@ -21,5 +21,4 @@ Rails.application.routes.draw do
   get "/cart" => "cart_items#index", as: "cart"
   get "/dashboard" => "users#show", as: "dashboard"
   get "/:id" => "categories#show", as: "category"
-
 end
