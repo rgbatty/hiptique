@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "Visitor can see all items by category", :type => :feature do
   scenario "visitor visits a category page" do
@@ -8,16 +8,10 @@ RSpec.feature "Visitor can see all items by category", :type => :feature do
 
     visit category_path(category.id)
 
-    within(".item_info") do
-      expect(page).to have_content(items[0].name)
-      expect(page).to have_content(items[0].description)
-      expect(page).to have_content(items[0].price)
-    end
+    expect(page).to have_content(items[0].name)
+    expect(page).to have_content(items[0].price)
 
-    within(".item_info") do
-      expect(page).to have_content(items[1].name)
-      expect(page).to have_content(items[1].description)
-      expect(page).to have_content(items[1].price)
-    end
+    expect(page).to have_content(items[1].name)
+    expect(page).to have_content(items[1].price)
   end
 end

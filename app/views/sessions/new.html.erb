@@ -1,10 +1,21 @@
-<%= form_for(:session, url: login_path) do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.submit "Log In" %>
-<% end  %>
+<div id="login">
+  <%= form_for(:session, url: login_path, class: "horizontal-form") do |f| %>
+    <div class="form-group">
+      <%= f.label :username %>
+      <%= f.text_field :username, class: "form-control" %>
+    </div>
 
-<p>Don't have an account?</p>
-<%= link_to "Create Account", new_user_path %>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Log In", class: "btn btn-default" %>
+    </div>
+  <% end  %>
+
+  <div>
+    <%= link_to "Create Account", new_user_path %>
+  </div>
+</div>

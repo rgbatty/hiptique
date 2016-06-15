@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.feature 'visitor can create a new account' do
+RSpec.feature "visitor can create a new account" do
   context "with valid params" do
     scenario "they see the form to create an account" do
       new_username = "Erin"
@@ -20,7 +20,7 @@ RSpec.feature 'visitor can create a new account' do
         expect(page).to have_content("Thanks for creating an account!")
       end
 
-      within(".navbar") do
+      within("#main-navbar") do
         expect(page).to have_content("Logged in as #{new_username}")
         expect(page).to have_content("Log Out")
         expect(page).not_to have_content("Log In")
@@ -84,7 +84,7 @@ RSpec.feature 'visitor can create a new account' do
       fill_in "Confirm Password", with: "passw0rd"
       click_button "Create Account"
 
-      within('#flash_error') do
+      within("#flash_error") do
         expect(page).to have_content("Password confirmation does not match")
       end
     end

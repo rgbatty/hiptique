@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
     if @order.save && session[:cart]
       @order.create_order_items(set_cart)
       flash[:notice] = "Order was successfully placed."
+      session[:cart] = {}
       redirect_to orders_path
     else
       flash[:error] = "Could not checkout"
