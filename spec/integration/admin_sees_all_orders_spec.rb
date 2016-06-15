@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "admin views orders" do
   scenario "can see all orders" do

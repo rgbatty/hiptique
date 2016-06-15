@@ -1,7 +1,7 @@
 <h1>Order Details</h1>
 <h4> Placed At: <%= @order.created_at %> </h2>
 
-<table class="table">
+<table class="table" id="status_table">
   <th>Order Status</th>
   <th>Order Placed At</th>
 
@@ -11,7 +11,7 @@
   </tr>
 </table>
 
-<table class="table">
+<table class="table" id="items">
   <th>Item Name</th>
   <th>Item Quantity</th>
   <th>Item Price</th>

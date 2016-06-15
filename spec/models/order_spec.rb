@@ -17,10 +17,10 @@ RSpec.describe Order, type: :model do
   end
 
   scenario "it counts all with a given status" do
-    orders = create_list(:order, 3)
-    paid_order = create(:order, status: 1)
-    cancelled_order = create(:order, status: 2)
-    completed_order = create(:order, status: 3)
+    create_list(:order, 3)
+    create(:order, status: 1)
+    create(:order, status: 2)
+    create(:order, status: 3)
 
     expect(Order.total(0)).to eq 3
     expect(Order.total(1)).to eq 1
@@ -29,10 +29,10 @@ RSpec.describe Order, type: :model do
   end
 
   scenario "it returns all order objects with a given status" do
-    orders = create_list(:order, 3)
-    paid_order = create(:order, status: 1)
-    cancelled_order = create(:order, status: 2)
-    completed_order = create(:order, status: 3)
+    create_list(:order, 3)
+    create(:order, status: 1)
+    create(:order, status: 2)
+    create(:order, status: 3)
 
     expect(Order.objects(0).count).to eq 3
     expect(Order.objects(1).count).to eq 1
