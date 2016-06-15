@@ -34,6 +34,7 @@ RSpec.describe Cart, type: :model do
     cart = Cart.new(nil)
 
     cart.add_item(item.id)
+    expect(cart.total).to eq 5.99 
   end
 
   it "can remove existing items from a cart" do
