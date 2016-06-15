@@ -1,14 +1,17 @@
 $(document).ready(function(){
+  $('.order_table').hide();
+  $('#all_orders').show();
 
-  function toggleOrderTable(buttonID, status){
+  showOrderTable("#all", "#all_orders");
+  showOrderTable("#order", "#ordered_orders");
+  showOrderTable("#pay", "#paid_orders");
+  showOrderTable("#cancel", "#cancelled_orders");
+  showOrderTable("#complete", "#completed_orders");
+
+  function showOrderTable(buttonID, status){
     $(buttonID).on("click", function(){
-      $(status).toggleClass("hidden");
+      $('.order_table').hide();
+      $(status).show();
     });
   }
-
-  toggleOrderTable("#all", "#all_orders");
-  toggleOrderTable("#order", "#ordered_orders");
-  toggleOrderTable("#pay", "#paid_orders");
-  toggleOrderTable("#cancel", "#cancelled_orders");
-  toggleOrderTable("#complete", "#completed_orders");
 });

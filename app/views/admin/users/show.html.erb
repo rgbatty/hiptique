@@ -1,46 +1,41 @@
 <h1>Admin Dashboard</h1>
 <%= render "shared/dashboard" %>
 
-<table class="table" id="status_table">
-  <th>Status</th>
-  <th>Total Orders</th>
-  <tr>
-    <td>Ordered</td>
-    <td id="ordered"><%= @orders.total("ordered") %></td>
-  </tr>
-  <tr>
-    <td> Paid </td>
-    <td id="paid"><%= @orders.total("paid") %></td>
-  </tr>
-  <tr>
-    <td> Cancelled </td>
-    <td id="cancelled"><%= @orders.total("cancelled") %></td>
-  </tr>
-  <tr>
-    <td> Completed </td>
-    <td id="completed"><%= @orders.total("completed") %></td>
-  </tr>
-</table>
-
-<div class="btn-group">
-  <button type="button" class="btn btn-default" id="all">All Orders</button>
-  <button type="button" class="btn btn-default" id="order">Ordered</button>
-  <button type="button" class="btn btn-default" id="pay">Paid</button>
-  <button type="button" class="btn btn-default" id="cancel">Cancelled</button>
-  <button type="button" class="btn btn-default" id="complete">Completed</button>
+<div>
+  <div class="btn-group">
+    <button type="button" class="btn btn-default" id="all">
+      All Orders
+      <span class="badge"><%= @orders.count %></span>
+    </button>
+    <button type="button" class="btn btn-default" id="order">
+      Ordered
+      <span class="badge"><%= @orders.total("ordered") %></span>
+    </button>
+    <button type="button" class="btn btn-default" id="pay">
+      Paid
+      <span class="badge"><%= @orders.total("paid") %></span>
+      </button>
+    <button type="button" class="btn btn-default" id="cancel">
+      Cancelled
+      <span class="badge"><%= @orders.total("cancelled") %></span>
+    </button>
+    <button type="button" class="btn btn-default" id="complete">
+      Completed
+      <span class="badge"><%= @orders.total("completed") %></span>
+    </button>
+  </div>
 </div>
 
-<table class="table hidden" id="all_orders">
-  <caption>All Orders</caption>
+<table class="table order_table" id="all_orders">
   <th>Order Number</th>
   <th>Order Status</th>
 
-<% @orders.each do |order| %>
-  <tr>
-    <td><%= link_to order.id, order_path(order) %></td>
-    <td><%= order.status %></td>
-  </tr>
-<% end %>
+  <% @orders.each do |order| %>
+    <tr>
+      <td><%= link_to order.id, order_path(order) %></td>
+      <td><%= order.status %></td>
+    </tr>
+  <% end %>
 </table>
 
 <%= render partial: 'order_table', locals: {orders: @orders, order_status: "ordered", status_number: 0} %>

@@ -2,13 +2,21 @@ jcasimir = User.create(username: "jcasimir", password: "test", email: "jcasimir@
 admin = User.create(username: "admin", password: "admin", role: 1, email: "jcasimir@example.com", name: "Jeff Casimir", address: "1510 Blake St", city: "Denver", state: "CO", zip: "80111")
 
 storage = Category.create(name: "storage")
-item_1 = storage.items.create(name: "Floppy Disc", description: "Need to store a whopping 1.44 MB of data? This bad boy has got you covered.", price: "5.99", image: "http://cws.gtc.edu/departments/Library/Library%20Technology%20Tips%20webpage/floppy.jpg")
-item_2 = storage.items.create(name: "CD", description: "Pretty great too", price: "2.99", image: "https://upload.wikimedia.org/wikipedia/commons/d/d5/CD_autolev_crop.jpg")
+item_1 = storage.items.create(name: "Laser Disc", description: "Make great plates.", price: "5.99", image: "https://visualhunt.com/photos/m/5/laser-and-video-discs-24.jpg")
+item_2 = storage.items.create(name: "Floppy Disc", description: "Need to store a whopping 1.44 MB of data? This bad boy has got you covered.", price: "5.99", image: "https://visualhunt.com/photos/m/5/day-037-did-floppy-exist-once.jpg")
+item_3 = storage.items.create(name: "CD", description: "Like ninja stars but better.", price: "2.99", image: "https://visualhunt.com/photos/m/4/cd-dvd-computer-data-shiny-digital-disk.jpg")
+
 
 electronics = Category.create(name: "electronics")
-item_3 = electronics.items.create(name: "Gameboy", description: "Hard as a rock", price: "99.99", image: "http://www.nxpresspodcast.com/wp-content/uploads/2015/12/l3U5HPIL-gameboy-s-.png")
-item_4 = electronics.items.create(name: "Walkman", description: "Pretty great too", price: "22.99", image: "http://i.telegraph.co.uk/multimedia/archive/01436/walkman1_1436143i.jpg")
-item_5 = electronics.items.create(name: "VCR", description: "YA great too", price: "100.99", image: "http://www.youbioit.com/files/newimages/2/15/generationy30.jpg")
+item_4 = electronics.items.create(name: "Walkman", description: "Enjoy some tunes on your walkman.", price: "22.99", image: "https://visualhunt.com/photos/m/5/sony-sports-walkman-wm-f5-okinawa.jpg")
+item_5 = electronics.items.create(name: "VCR", description: "Now go find some VCR tapes!", price: "100.99", image: "https://visualhunt.com/photos/m/5/vcr.jpg")
+item_6 = electronics.items.create(name: "Discman", description: "Listen to all your favorite hits.", price: "10.99", image: "https://c4.staticflickr.com/3/2318/2051407819_794a95d465_b.jpg")
+
+game_systems = Category.create(name: "gaming")
+item_7 = game_systems.items.create(name: "Gameboy", description: "Remember discovering Tetris? Discover it again on this Gameboy.", price: "99.99", image: "https://c4.staticflickr.com/8/7481/16037341171_3db0f52a8d_k.jpg")
+item_8 = game_systems.items.create(name: "Atari", description: "Take it back to the 80's and play some Atari on this mint condition system.", price: "800.99", image: "https://c5.staticflickr.com/8/7678/17513196036_a6b2e4889f_k.jpg")
+item_9 = game_systems.items.create(name: "Nintendo", description: "Play some games on the original NES.", price: "1999.88", image: "https://visualhunt.com/photos/m/5/nintendo-nes.jpg")
+
 
 order_1 = jcasimir.orders.create(status: "paid")
 order_2 = jcasimir.orders.create(status: "paid")
