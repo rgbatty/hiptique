@@ -4,6 +4,10 @@ FactoryGirl.define do
     password "password"
     password_confirmation "password"
     role "default"
+
+    factory :user_with_orders do
+      orders { create_list(:order, 3) }
+    end
   end
 
   factory :item do
@@ -20,6 +24,7 @@ FactoryGirl.define do
 
   factory :order do
     user
+    status 0
   end
 
   sequence :username do |n|
