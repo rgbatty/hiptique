@@ -36,4 +36,28 @@ class Order < ActiveRecord::Base
       self.updated_at
     end
   end
+
+  def self.total(status)
+    where(status: status).size
+  end
+
+  def self.objects(status)
+    where(status: status)
+  end
+
+  def editable_status?
+    if ordered? || paid?
+      true
+    else
+      false
+    end
+  end
+
+  def status_options
+    if ordered?
+      ["ordered", "paid", "cancelled"]
+    else paid?
+      ["paid", "completed", "cancelled"]
+    end
+  end
 end

@@ -10,6 +10,10 @@ FactoryGirl.define do
     state "FT"
     zip "1234"
     role "default"
+
+    factory :user_with_orders do
+      orders { create_list(:order, 3) }
+    end
   end
 
   factory :item do
@@ -26,6 +30,7 @@ FactoryGirl.define do
 
   factory :order do
     user
+    status 0
   end
 
   sequence :username do |n|
