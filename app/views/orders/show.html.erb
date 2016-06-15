@@ -1,15 +1,7 @@
 <h1>Order Details</h1>
-<h4> Placed At: <%= @order.created_at %> </h2>
 
-<table class="table" id="status_table">
-  <th>Order Status</th>
-  <th>Order Placed At</th>
-
-  <tr>
-    <td><%= @order.status %></td>
-    <td><%= @order.get_relevant_time %></td>
-  </tr>
-</table>
+<h4> Placed at: <%= @order.created_at %> </h2>
+<h4><%= @order.status.capitalize %> at: <%= @order.get_relevant_time %></h4>
 
 <table class="table" id="items">
   <th>Item Name</th>

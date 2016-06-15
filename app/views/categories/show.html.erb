@@ -1,8 +1,1 @@
-<h1> <%= @category.name %></h1>
-<ul class="item_info">
-<% @category.items.each do |item| %>
-  <li><%= item.name %></li><br>
-  <li><%= item.description %></li><br>
-  <li><%= item.price %></li><br>
-<% end %>
-</ul>
+<%= render "shared/item_list" %>

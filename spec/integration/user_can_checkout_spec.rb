@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "user can checkout" do
   scenario "visitor checkout process" do
@@ -8,18 +8,15 @@ RSpec.feature "user can checkout" do
     page.set_rack_session(:cart => {item.id => 1})
 
     visit cart_path
-
     click_link "Login or Create Account to Checkout"
 
     fill_in "Username", with: user.username
     fill_in "Password", with: user.password
 
     click_button "Log In"
-
     expect(current_path).to eq(cart_path)
 
     click_button "Checkout"
-
     expect(current_path).to eq("/orders")
     expect(Order.count).to eq(1)
 

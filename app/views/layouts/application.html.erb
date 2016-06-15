@@ -7,40 +7,16 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   </head>
+
   <body>
-      <nav class ="navbar navbar-default">
-        <div class="container-fluid" id="custom-nav">
-           <div class="navbar-header" id="icon">
-            <%= link_to image_tag('icon.png'), items_path %>
-          </div>
-          <ul class="nav navbar-nav navbar-right">
-            <% if current_user %>
-            <li><%= link_to "Log Out", logout_path, method: :delete %></li>
-            <li>Logged in as <%=link_to current_user.username, dashboard_path %>.</li>
-            <% else %>
-            <li><%= link_to "Log In", login_path %></li>
-            <% end  %>
+    <%= render "shared/main_nav" %>
+    <%= render "shared/page_header" %>
+    <%= render "shared/category_nav" %>
 
-            <li>
-              <%= link_to cart_path do %>
-                <i class="glyphicon glyphicon-shopping-cart">Cart</i>
-              <% end %>
-            </li>
-        </ul>
-      </div>
-      </nav>
-      <% flash.each do |name, message| %>
-      <%= content_tag :div, message.html_safe, id: "flash_#{name}", class: "flash_message" %>
-      <% end %>
-      <div class="backgound-image">
+    <div class="container" id="site_content">
+      <%= render "shared/flash" %>
+      <%= yield %>
+    </div>
 
-      </div>
-<div id="site_content">
-  <div class="container">
-
-<%= yield %>
-</div>
-</div>
-</body>
-</div>
+  </body>
 </html>

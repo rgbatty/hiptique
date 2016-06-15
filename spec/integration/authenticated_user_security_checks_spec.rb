@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "Authenticated User has correct privledges" do
   scenario "cannot view another user's data" do

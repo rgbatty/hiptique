@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "Unauthenticated User has correct privledges" do
   scenario "cannot view another user's data" do
@@ -7,7 +7,6 @@ RSpec.feature "Unauthenticated User has correct privledges" do
     visit dashboard_path
 
     expect(current_path).to eq(login_path)
-
     expect{visit ("/users/#{user.id}") }.to raise_error( ActionController::RoutingError)
   end
 
