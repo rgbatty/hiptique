@@ -29,12 +29,11 @@ RSpec.describe User, type: :model do
     user_4 = User.new(username: "admin", password: "admin", email: "icorson@example.com", name: "ilana", address: "8902 Lincoln Street", city: "denver")
     user_5 = User.new(username: "admin", password: "admin", email: "icorson@example.com", name: "ilana", address: "8902 Lincoln Street", city: "denver", state: "CO")
 
-
     expect(user.save).to eq false
     expect(user_1.save).to eq false
     expect(user_2.save).to eq false
     expect(user_3.save).to eq false
-    expect(user_3.save).to eq false
+    expect(user_4.save).to eq false
     expect(user_5.save).to eq false
   end
 end
