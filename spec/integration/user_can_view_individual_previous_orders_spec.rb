@@ -11,9 +11,7 @@ RSpec.feature "viewing individual past orders" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit orders_path
-
     click_link order.id
-
     expect(current_path).to eq(order_path(order))
 
     expect(page).to have_link(items[0].name)
@@ -26,8 +24,7 @@ RSpec.feature "viewing individual past orders" do
     expect(page).to have_content(items[1].price)
     expect(page).to have_content(items[1].subtotal(order.id))
 
-    expect(page).to have_content(order.status)
-
+    expect(page).to have_content("Ordered")
     expect(page).to have_content(order.total_price)
     expect(page).to have_content(order.created_at)
   end
@@ -44,10 +41,9 @@ RSpec.feature "viewing individual past orders" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit orders_path
-
     click_link order_1.id
 
-    expect(page).to have_content("completed")
+    expect(page).to have_content("Completed")
     expect(page).to have_content(order_1.finished_at)
   end
 
@@ -62,10 +58,9 @@ RSpec.feature "viewing individual past orders" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit orders_path
-
     click_link order_1.id
 
-    expect(page).to have_content("cancelled")
+    expect(page).to have_content("Cancelled")
     expect(page).to have_content(order_1.finished_at)
   end
 end

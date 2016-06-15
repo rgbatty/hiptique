@@ -11,7 +11,6 @@ RSpec.feature 'logged in user can check out' do
     click_button("Add to cart")
 
     visit cart_path
-
     click_button "Checkout"
 
     expect(current_path).to eq("/orders")

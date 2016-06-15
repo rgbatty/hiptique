@@ -20,7 +20,7 @@ RSpec.feature 'visitor can create a new account' do
         expect(page).to have_content("Thanks for creating an account!")
       end
 
-      within(".navbar") do
+      within("#main-navbar") do
         expect(page).to have_content("Logged in as #{new_username}")
         expect(page).to have_content("Log Out")
         expect(page).not_to have_content("Log In")

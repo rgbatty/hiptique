@@ -6,13 +6,7 @@ RSpec.feature "Visitor can see all items", :type => :feature do
 
     visit items_path
 
-    within("h1") do
-      expect(page).to have_content("All Available Items")
-    end
-
-    within(".all_info") do
-      expect(page).to have_content(items[0].name)
-      expect(page).to have_content(items[1].name)
-    end
+    expect(page).to have_content(items[0].name)
+    expect(page).to have_content(items[1].name)
   end
 end
