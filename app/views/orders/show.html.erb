@@ -10,7 +10,7 @@
 <table id="status">
   <tr>
     <td>Status:
-    <% if @order.editable_status? %>
+    <% if @order.editable_status? && current_admin? %>
       <td><%= render partial: 'ordered_status' %></td>
     <% else  %>
       <%= @order.status %>
