@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   get "/user/edit", to: "users#edit", as: "edit_user"
   get "/cart" => "cart_items#index", as: "cart"
   get "/dashboard" => "users#show", as: "dashboard"
+  get "/favicon.ico" => "application#get_favicon"
   get "/:id" => "categories#show", as: "category"
 end
