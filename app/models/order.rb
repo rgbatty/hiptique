@@ -1,3 +1,5 @@
+require 'twilio-ruby'
+
 class Order < ActiveRecord::Base
   attr_accessor :cart
 
@@ -15,14 +17,12 @@ class Order < ActiveRecord::Base
 
   def cancel
     self.finished_at = DateTime.now
-    self.status = "cancelled"
-    save
+    self.update_attributes(status: "cancelled")
   end
 
   def complete
     self.finished_at = DateTime.now
-    self.status = "completed"
-    save
+    self.update_attributes(status: "completed")
   end
 
   def total_price

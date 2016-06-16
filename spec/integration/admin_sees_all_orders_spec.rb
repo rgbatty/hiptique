@@ -22,21 +22,5 @@ RSpec.feature "admin views orders" do
       expect(page).to have_content(orders[1].status)
       expect(page).to have_content(orders[2].status)
     end
-
-    within("#ordered") do
-      expect(page).to have_content(orders.count)
-    end
-
-    within("#paid") do
-      expect(page).to have_content(orders.count)
-    end
-
-    within("#cancelled") do
-      expect(page).to have_content(orders.count)
-    end
-
-    within("#completed") do
-      expect(page).to have_content(orders.count)
-    end
   end
 end

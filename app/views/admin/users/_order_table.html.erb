@@ -1,5 +1,4 @@
-<table class="table hidden" id= '<%=order_status%>_orders' >
-  <caption>Orders: <%= order_status %></caption>
+<table class="table order_table" id= '<%=order_status%>_orders' >
   <th>Order Number</th>
 <% @orders.objects(status_number).each do |order| %>
   <tr>
