@@ -38,7 +38,7 @@ class Order < ActiveRecord::Base
   end
 
   def self.total(status)
-    where(status: status).size
+    where(status: status).count
   end
 
   def self.objects(status)

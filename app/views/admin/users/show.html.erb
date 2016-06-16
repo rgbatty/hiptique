@@ -9,19 +9,19 @@
     </button>
     <button type="button" class="btn btn-default" id="order">
       Ordered
-      <span class="badge"><%= @orders.total("ordered") %></span>
+      <span class="badge"><%= @orders.total(0) %></span>
     </button>
     <button type="button" class="btn btn-default" id="pay">
       Paid
-      <span class="badge"><%= @orders.total("paid") %></span>
+      <span class="badge"><%= @orders.total(1) %></span>
       </button>
     <button type="button" class="btn btn-default" id="cancel">
       Cancelled
-      <span class="badge"><%= @orders.total("cancelled") %></span>
+      <span class="badge"><%= @orders.total(3) %></span>
     </button>
     <button type="button" class="btn btn-default" id="complete">
       Completed
-      <span class="badge"><%= @orders.total("completed") %></span>
+      <span class="badge"><%= @orders.total(2) %></span>
     </button>
   </div>
 </div>
