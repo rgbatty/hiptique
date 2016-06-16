@@ -15,14 +15,14 @@
       Paid
       <span class="badge"><%= @orders.total(1) %></span>
       </button>
-    <button type="button" class="btn btn-default" id="cancel">
-      Cancelled
-      <span class="badge"><%= @orders.total(3) %></span>
-    </button>
-    <button type="button" class="btn btn-default" id="complete">
-      Completed
-      <span class="badge"><%= @orders.total(2) %></span>
-    </button>
+      <button type="button" class="btn btn-default" id="cancel">
+        Cancelled
+        <span class="badge"><%= @orders.total(2) %></span>
+      </button>
+      <button type="button" class="btn btn-default" id="complete">
+        Completed
+        <span class="badge"><%= @orders.total(3) %></span>
+      </button>
   </div>
 </div>
 
