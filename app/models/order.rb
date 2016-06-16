@@ -15,18 +15,6 @@ class Order < ActiveRecord::Base
     end
   end
 
-  def send_notification
-    twilio_number = ENV['TWILIO_NUMBER']
-    client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
-    alert = "NOTICE: Your order is now #{self.status}"
-    message = client.account.messages.create(
-      :from => twilio_number,
-      :to => +13038702775,
-      :body => alert,
-    )
-    puts message.to
-  end
-
   def cancel
     self.finished_at = DateTime.now
     self.status = "cancelled"
