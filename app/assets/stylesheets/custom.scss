@@ -33,6 +33,7 @@
 #category-nav {
   min-height:25px;
   background-color: #964646;
+  border-radius: 0;
 }
 
 #category-nav .navbar-header {
@@ -42,7 +43,7 @@
 
 #category-navbar {
   width: 100%;
-    text-align: center;
+    text-align: left;
     > li {
       float: none;
       display: inline-block;
@@ -106,6 +107,7 @@
 
 //----------Flashes---------
 .flash_message {
+  margin-top: 10px;
   color: white;
   background-color: #F0B67F;
   padding: 10px;
@@ -146,11 +148,15 @@ a:visited {
 }
 
 #total {
-  margin-left: 85%;
+  margin-top: 20px;
 }
 
 #checkout {
   float: left;
+}
+
+#cart-remove {
+  background-color: #F0B67F;
 }
 
 //----------Login---------

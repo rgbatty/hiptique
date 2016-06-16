@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_constants
   before_action :set_cart
-  helper_method :current_user
+  helper_method :current_user, :current_admin?
 
   def set_constants
     @categories = Category.all
