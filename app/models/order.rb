@@ -20,7 +20,7 @@ class Order < ActiveRecord::Base
 
   def complete
     self.finished_at = DateTime.now
-    self.update_attributes(status:"completed")
+    self.update_attributes(status: "completed")
   end
 
   def total_price
