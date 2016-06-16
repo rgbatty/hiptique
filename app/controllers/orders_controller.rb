@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
       @order.create_order_items(set_cart)
       flash[:notice] = "Order was successfully placed."
       session[:cart] = {}
+      @order.send_notification
       redirect_to orders_path
     else
       flash[:error] = "Could not checkout. Please add some items!"
@@ -27,6 +28,7 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     if @order.update(order_params)
+      @order.send_notification
       redirect_to @order
     else
       render :show

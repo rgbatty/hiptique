@@ -1,3 +1,5 @@
+require 'twilio-ruby'
+
 class Order < ActiveRecord::Base
   attr_accessor :cart
 
@@ -11,6 +13,18 @@ class Order < ActiveRecord::Base
       OrderItem.create(item_id: content.id, order_id: self.id,
                        subtotal: content.subtotal, quantity: content.quantity)
     end
+  end
+
+  def send_notification
+    twilio_number = ENV['TWILIO_NUMBER']
+    client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
+    alert = "NOTICE: Your order is now #{self.status}"
+    message = client.account.messages.create(
+      :from => twilio_number,
+      :to => +13038702775,
+      :body => alert,
+    )
+    puts message.to
   end
 
   def cancel
