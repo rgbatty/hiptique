@@ -26,6 +26,7 @@
   <th>Item Quantity</th>
   <th>Item Price</th>
   <th>Item Subtotal</th>
+  <th>Rating</th>
 
   <% @order.items.each do |item| %>
 
@@ -34,6 +35,7 @@
     <td><%= item.quantity(@order.id) %></td>
     <td><%= item.price %></td>
     <td><%= item.subtotal(@order.id) %></td>
+    <td> <%= render partial: "rating_form" %>
   </tr>
   <% end %>
 </table>

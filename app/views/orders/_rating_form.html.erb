@@ -1,0 +1,4 @@
+<%= form_for(@order_item) do |f| %>
+  <%= f.select :rating, options_for_select(@order_item.rating_options)%>
+  <%= f.submit "Rate This Item" %>
+<% end  %>
