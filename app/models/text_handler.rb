@@ -6,7 +6,7 @@ class TextHandler
 
     client.account.messages.create(
       from: twilio_number,
-      to: +3038702775,
+      to: "ADD NUMBER HERE",
       body: alert,
     )
   end
